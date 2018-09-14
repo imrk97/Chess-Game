@@ -24,6 +24,7 @@ import java.awt.event.ActionListener;
 
 public class Chess_Board extends JFrame implements ActionListener
 {
+	JFrame window = new JFrame();
 	JPanel p = new JPanel();
 	Pieces_btn button[][] = new Pieces_btn[8][8];
 	/*public static void main(String args[])
@@ -33,9 +34,17 @@ public class Chess_Board extends JFrame implements ActionListener
 	public Chess_Board()
 	{
 		super("Chess Game");
-		pack();
+		//pack();
 		setSize(700,700);
+		setExtendedState(JFrame.MAXIMIZED_BOTH);
+		setUndecorated(true);
+		window.setLocation(75,5);
+		window.add(p);
+		window.setSize(1032,720);
+		window.setVisible(true);
 		setResizable(false);
+		p.setLocation(75, 5);
+		p.setSize(600, 600);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		p.setLayout(new GridLayout(8,8,2,2));
 		for(int i=0;i<8;i++)
@@ -51,7 +60,7 @@ public class Chess_Board extends JFrame implements ActionListener
 				p.add(button[i][j]);
 			}
 		}
-		/*getContentPane().*/add(p);
+		/*this.getContentPane().*/add(p);
 		
 		setVisible(true);
 	}
