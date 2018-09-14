@@ -152,7 +152,7 @@ public class Chess_Board extends JFrame implements ActionListener
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
 		
-		//Dimension contentSize = this.getContentPane().getSize();
+		///Dimension contentSize = this.getContentPane().getSize();
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		this.setUndecorated(true);
 		JPanel panel = new JPanel();
