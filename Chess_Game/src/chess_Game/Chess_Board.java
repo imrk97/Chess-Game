@@ -158,7 +158,7 @@ public class Chess_Board extends JFrame implements ActionListener
 		JPanel panel = new JPanel();
 		getContentPane().add(panel);
 		panel.setLayout(null);
-		
+	//
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.WHITE);
 		panel_1.setBounds(0, 0, 310, 740);
