@@ -20,7 +20,7 @@ public class Game_main_class
 		obj.loadPieces();
 		//Placing the pieces(GUI)
 		
-		
+		//Writing after git  repository
 		//infinite while loop for changing the turns infinitely
 	}
 }
