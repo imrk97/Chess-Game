@@ -15,9 +15,9 @@ public class Game_main_class
 	Tile Board[][] = new Tile[8][8];
 	public static void main(String args[])
 	{
-		//Pieces_btn obj = new Pieces_btn();
+		Pieces_btn obj = new Pieces_btn(0,0);
 		new Chess_Board();  //Loading the Chess Board (The GUI)
-		//obj.loadPieces();
+		obj.loadPieces();
 		//Placing the pieces(GUI)
 		
 		

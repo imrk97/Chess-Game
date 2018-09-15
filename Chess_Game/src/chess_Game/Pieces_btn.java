@@ -90,7 +90,7 @@ public class Pieces_btn extends JButton
 		Image resized_img = new_img.getScaledInstance(84, 84, java.awt.Image.SCALE_SMOOTH);
 		return new ImageIcon(resized_img);
 	}
-	/*public void loadPieces()
+	public void loadPieces()
 	{
 		for(int i=0;i<8;i++)
 		{
@@ -102,5 +102,5 @@ public class Pieces_btn extends JButton
 					setIcon(resize(b_king));
 			}
 		}
-	}*/
+	}
 }
