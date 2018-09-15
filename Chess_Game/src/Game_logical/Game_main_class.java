@@ -19,11 +19,9 @@ public class Game_main_class
 		new Chess_Board();  //Loading the Chess Board (The GUI)
 		obj.loadPieces();
 		//Placing the pieces(GUI)
-		//Rahul
+		
 		System.out.println("Hello");
 		//Writing after git  repository
 		//infinite while loop for changing the turns infinitely
-		//rohan hfuyfuyf
-		//kjkhnjh
 	}
 }
