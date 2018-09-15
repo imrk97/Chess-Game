@@ -19,7 +19,7 @@ public class Game_main_class
 		new Chess_Board();  //Loading the Chess Board (The GUI)
 		obj.loadPieces();
 		//Placing the pieces(GUI)
-		
+		//rohan
 		//Writing after git  repository
 		//infinite while loop for changing the turns infinitely
 	}
