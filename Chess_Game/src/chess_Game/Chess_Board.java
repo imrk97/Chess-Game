@@ -6,10 +6,18 @@ package chess_Game;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import Game_logical.Game_main_class;
+import Game_logical.PAWN;
+import Game_logical.Piece;
+import Game_logical.Player;
+
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Chess_Board extends JFrame
+public class Chess_Board extends JFrame implements ActionListener
 {
 	JPanel p = new JPanel();
 	Pieces_btn button[][] = new Pieces_btn[8][8];
@@ -30,6 +38,7 @@ public class Chess_Board extends JFrame
 			for(int j=0;j<8;j++)
 			{
 				button[i][j]=new Pieces_btn(i,j);
+				button[i][j].addActionListener(this);
 				if((i+j) % 2 == 0)
 					button[i][j].setBackground(new Color(255,229,181));
 				else
@@ -41,4 +50,39 @@ public class Chess_Board extends JFrame
 		
 		setVisible(true);
 	}
+	
+	//Override
+	public void actionPerformed(ActionEvent e)
+	{
+		int piece_in_button;
+		Piece_Type arr[] = Piece_Type.values();
+		String str;
+		Player pl_obj = new Player();
+		for(int i=0;i<8;i++)
+		{
+			for(int j=0;j<8;j++)
+			{
+				if(e.getSource() == button[i][j])
+				{
+					//System.out.println("i="+i+"j="+j);
+					
+					piece_in_button = Game_main_class.Board[i][j];
+					str = pl_obj.nowTurn();
+					if(piece_in_button == 1)
+					{
+						PAWN pawn = new PAWN(i,j,arr[piece_in_button]);
+					}
+				}
+			}
+		}
+		//System.out.println("Button clicked "+e.getActionCommand());
+	}
 }
+
+
+
+
+
+
+
+

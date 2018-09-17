@@ -8,16 +8,16 @@
  */
 package Game_logical;
 
-import chess_Game.Type;
+import chess_Game.Piece_Type;
 import java.lang.Math;
 
 public class PAWN extends Piece
 {
-	Type type;
-	PAWN(int x,int y,Player player)
+	Piece_Type type;
+	public PAWN(int x,int y,/*Player player,*/Piece_Type arr)
 	{
 		super(x,y,player);
-		type = Type.Pawn;
+		type = arr;
 	}
 	boolean isValidPath(int dest_x,int dest_y)
 	{

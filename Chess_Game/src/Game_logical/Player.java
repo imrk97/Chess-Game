@@ -13,7 +13,7 @@ public class Player
 {
 	private static String player = "white";
 	//Return who's turn is this
-	String nowTurn()
+	public String nowTurn()
 	{
 		return player;
 	}
