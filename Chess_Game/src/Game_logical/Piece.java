@@ -9,17 +9,22 @@
  */
 package Game_logical;
 
+import chess_Game.Piece_Type;
+
 public abstract class Piece
 {
-	//Type type;
-	int x_pos,y_pos;
-	Player player;
-	Piece(int x,int y,Player player)
+	Piece_Type type;
+	int x_pos,y_pos;                 //  Here x,y are in row column convention, not in graph convention
+	int piece_id;
+	//Player player;
+	Piece(int x,int y,int piece_id)
 	{
 		x_pos = x;
 		y_pos = y;
-		this.player = player;
+		this.piece_id = piece_id;
+		//type = piece_name;
+		//this.player = player;
 	}
 	abstract boolean isValidPath(int dest_x,int dest_y);
-	abstract int [][]drawPath();
+	abstract boolean [][]drawPath();
 }

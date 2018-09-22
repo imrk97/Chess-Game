@@ -56,7 +56,7 @@ public class Chess_Board extends JFrame implements ActionListener
 	{
 		int piece_in_button;
 		Piece_Type arr[] = Piece_Type.values();
-		String str;
+		String turn;
 		Player pl_obj = new Player();
 		for(int i=0;i<8;i++)
 		{
@@ -64,13 +64,18 @@ public class Chess_Board extends JFrame implements ActionListener
 			{
 				if(e.getSource() == button[i][j])
 				{
-					//System.out.println("i="+i+"j="+j);
+					System.out.println("i="+i+"j="+j);
 					
 					piece_in_button = Game_main_class.Board[i][j];
-					str = pl_obj.nowTurn();
-					if(piece_in_button == 1)
+					turn = pl_obj.nowTurn();
+					if(piece_in_button == 9)
 					{
-						PAWN pawn = new PAWN(i,j,arr[piece_in_button]);
+						// For testing purpose only
+						
+						
+						PAWN pawn = new PAWN(i,j,piece_in_button,turn);
+						pawn.drawPath();
+						System.out.println("Pressed 1");
 					}
 				}
 			}
