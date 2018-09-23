@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Game_logical.Game_main_class;
+import Game_logical.KNIGHT;
 import Game_logical.PAWN;
 import Game_logical.Piece;
 import Game_logical.Player;
@@ -76,6 +77,12 @@ public class Chess_Board extends JFrame implements ActionListener
 						PAWN pawn = new PAWN(i,j,piece_in_button,turn);
 						pawn.drawPath();
 						System.out.println("Pressed 1");
+					}
+					else if(piece_in_button == 2)
+					{
+						KNIGHT knight = new KNIGHT(i,j,piece_in_button,turn);
+						knight.drawPath();
+						System.out.println("Knight pressed");
 					}
 				}
 			}

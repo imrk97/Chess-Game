@@ -7,7 +7,9 @@ import chess_Game.*;
 public class ROOK extends Piece {
 	Piece_Type type;
 	String turn;
-
+	int up,down,left,right,x;
+	int row,col;
+	
 	ROOK(int x, int y, int piece_in_button_id, String turn) {
 		super(x, y, piece_in_button_id);
 		// type=Piece_Type.Rook;
@@ -21,8 +23,61 @@ public class ROOK extends Piece {
 		System.out.println("x = " + x_pos + "\ny = " + y_pos);
 		System.out.println("x dist = " + x_distance + "y dist = " + y_distance);
 		System.out.println("x dest = " + dest_x + " y dest = " + dest_y);
+		//moves horizontally
+		if(x_distance == 0)
+		{
+			if(turn == "white" && piece_id <= 16)
+			{
+				if(Game_main_class.Board[dest_x][dest_y] <= 16)
+				{
+					return true;
+				}
+				else if(Game_main_class.Board[dest_x][dest_y] > 16)
+				{
+					row = dest_x;
+					col = dest_y;
+					return true;
+				}
+				else if(Game_main_class.Board[dest_x][dest_y] == 0)
+				{
+					
+				}
+				else
+					return false;
+			}
+			else if(turn == "black" && piece_id > 16)
+			{
+				if(Game_main_class.Board[dest_x][dest_y] == 0)
+				{
+					return true;
+				}
+				else if(Game_main_class.Board[dest_x][dest_y] < 17)
+				{
+					//x = true;
+					return true;
+				}
+				else
+					return false;
+			}
+			else
+				return false;
+		}
+
+		// moves vertically
+		else if(y_distance == 0)
+		{
+			
+		}
+		else
+			return false;
+
+
+		return false;         ///////////////////   this line is to be deleted
+		}
+		
+		
 		// horizontal moving
-		if ((x_distance >= 1 || x_distance <= 7) && y_distance == 0 && dest_x < 8 && dest_x > -1
+		/*if ((x_distance >= 1 || x_distance <= 7) && y_distance == 0 && dest_x < 8 && dest_x > -1
 				&& Game_main_class.Board[dest_x][dest_y] == 0) {
 			if (turn == "black" && piece_id == 1 && piece_id == 8) {
 				return true;
@@ -71,4 +126,9 @@ public class ROOK extends Piece {
 		return path;
 	}
 
-}
+}*/
+
+
+
+
+
