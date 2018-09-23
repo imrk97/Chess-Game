@@ -7,6 +7,9 @@ package chess_Game;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.sun.org.apache.bcel.internal.generic.BIPUSH;
+
+import Game_logical.BISHOP;
 import Game_logical.Game_main_class;
 import Game_logical.KNIGHT;
 import Game_logical.PAWN;
@@ -83,6 +86,13 @@ public class Chess_Board extends JFrame implements ActionListener
 						KNIGHT knight = new KNIGHT(i,j,piece_in_button,turn);
 						knight.drawPath();
 						System.out.println("Knight pressed");
+					}
+					else if(piece_in_button == 3)
+					{
+						BISHOP bishop = new BISHOP(i,j,piece_in_button,turn);
+						bishop.drawPath();
+						
+						System.out.println("Bishop pressed");
 					}
 				}
 			}
