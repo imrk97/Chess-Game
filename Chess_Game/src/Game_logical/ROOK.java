@@ -4,131 +4,223 @@ package Game_logical;
 
 import chess_Game.*;
 
-public class ROOK extends Piece {
+public class ROOK extends Piece 
+{
 	Piece_Type type;
 	String turn;
 	int up,down,left,right,x;
 	int row,col;
 	
-	ROOK(int x, int y, int piece_in_button_id, String turn) {
+	public ROOK(int x, int y, int piece_in_button_id, String turn)
+	{
 		super(x, y, piece_in_button_id);
 		// type=Piece_Type.Rook;
 		this.turn = turn;
 	}
-
-	boolean isValidPath(int dest_x, int dest_y) {
+	
+	boolean up_block(int dest_x, int dest_y)
+	{
+		for(int i=dest_x+1;i<x_pos;i++)
+			if(Game_main_class.Board[i][dest_y] != 0)
+				return true;    //  Blocked
+		return false;    // Not blocked
+	}
+	
+	boolean down_block(int dest_x, int dest_y)
+	{
+		for(int i=dest_x-1;i>x_pos;i--)
+			if(Game_main_class.Board[i][dest_y] != 0)
+				return true;
+		return false;
+	}
+	
+	boolean left_block(int dest_x, int dest_y)
+	{
+		for(int i=dest_y+1;i<y_pos;i++)
+			if(Game_main_class.Board[dest_x][i] != 0)
+				return true;
+		return false;
+	}
+	
+	boolean right_block(int dest_x, int dest_y)
+	{
+		for(int i=dest_y-1;i>y_pos;i--)
+			if(Game_main_class.Board[dest_x][i] != 0)
+				return true;
+		return false;
+	}
+	
+	boolean isValidPath(int dest_x, int dest_y)
+	{
 		int x_distance = Math.abs(dest_x - x_pos); // row distance
 		int y_distance = Math.abs(dest_y - y_pos); // column distance
-
+		
 		System.out.println("x = " + x_pos + "\ny = " + y_pos);
 		System.out.println("x dist = " + x_distance + "y dist = " + y_distance);
 		System.out.println("x dest = " + dest_x + " y dest = " + dest_y);
 		//moves horizontally
-		if(x_distance == 0)
+		if((x_distance == 0 && y_distance != 0) || (x_distance != 0 && y_distance == 0))
 		{
-			if(turn == "white" && piece_id <= 16)
+			if(turn == "white" && piece_id <= 16 && (Game_main_class.Board[dest_x][dest_y] > 16 || Game_main_class.Board[dest_x][dest_y] == 0))
 			{
-				if(Game_main_class.Board[dest_x][dest_y] <= 16)
+				if((dest_x < x_pos && up_block(dest_x, dest_y) == false) || (dest_x > x_pos && down_block(dest_x, dest_y) == false) || 
+						(dest_y < y_pos && left_block(dest_x, dest_y) == false) || (dest_y > y_pos && right_block(dest_x, dest_y) == false))
 				{
-					return true;
+					if(Game_main_class.Board[dest_x][dest_y] == 0)
+					{
+						return true;
+					}
+					else if(Game_main_class.Board[dest_x][dest_y] > 16)   // Cutting opponents
+					{
+						return true;
+					}
+					else                   //  This will never reach
+						return false;
 				}
-				else if(Game_main_class.Board[dest_x][dest_y] > 16)
+				/*else if(dest_x > x_pos && down_block(dest_x, dest_y) == false)
 				{
-					row = dest_x;
-					col = dest_y;
-					return true;
+					if(Game_main_class.Board[dest_x][dest_y] == 0)
+					{
+						return true;
+					}
+					else if(Game_main_class.Board[dest_x][dest_y] > 16)   // Cutting opponents
+					{
+						return true;
+					}
+					else                   //  This will never reach
+						return false;
 				}
-				else if(Game_main_class.Board[dest_x][dest_y] == 0)
+				else if(dest_y < y_pos && left_block(dest_x, dest_y) == false)
 				{
-					
+					if(Game_main_class.Board[dest_x][dest_y] == 0)
+					{
+						return true;
+					}
+					else if(Game_main_class.Board[dest_x][dest_y] > 16)   // Cutting opponents
+					{
+						return true;
+					}
+					else                   //  This will never reach
+						return false;
 				}
+				else if(dest_y > y_pos && right_block(dest_x, dest_y) == false)
+				{
+					if(Game_main_class.Board[dest_x][dest_y] == 0)
+					{
+						return true;
+					}
+					else if(Game_main_class.Board[dest_x][dest_y] > 16)   // Cutting opponents
+					{
+						return true;
+					}
+					else                   //  This will never reach
+						return false;
+				}*/
 				else
 					return false;
 			}
-			else if(turn == "black" && piece_id > 16)
+			else if(turn == "black" && piece_id >= 17 && Game_main_class.Board[dest_x][dest_y] < 17)
 			{
-				if(Game_main_class.Board[dest_x][dest_y] == 0)
+				if((dest_x < x_pos && up_block(dest_x, dest_y) == false) || (dest_x > x_pos && down_block(dest_x, dest_y) == false) ||
+						(dest_y < y_pos && left_block(dest_x, dest_y) == false) || (dest_y > y_pos && right_block(dest_x, dest_y) == false))
 				{
-					return true;
+					if(Game_main_class.Board[dest_x][dest_y] == 0)
+					{
+						return true;
+					}
+					else if(Game_main_class.Board[dest_x][dest_y] < 16)   // Cutting opponents
+					{
+						return true;
+					} 
+					else                   //  This will never reach
+						return false;
 				}
-				else if(Game_main_class.Board[dest_x][dest_y] < 17)
+				/*else if(dest_x > x_pos && down_block(dest_x, dest_y) == false)
 				{
-					//x = true;
-					return true;
+					if(Game_main_class.Board[dest_x][dest_y] == 0)
+					{
+						return true;
+					}
+					else if(Game_main_class.Board[dest_x][dest_y] < 16)   // Cutting opponents
+					{
+						return true;
+					} 
+					else                   //  This will never reach
+						return false;
 				}
+				else if(dest_y < y_pos && left_block(dest_x, dest_y) == false)
+				{
+					if(Game_main_class.Board[dest_x][dest_y] == 0)
+					{
+						return true;
+					}
+					else if(Game_main_class.Board[dest_x][dest_y] < 16)   // Cutting opponents
+					{
+						return true;
+					} 
+					else                   //  This will never reach
+						return false;
+				}
+				else if(dest_y > y_pos && right_block(dest_x, dest_y) == false)
+				{
+					if(Game_main_class.Board[dest_x][dest_y] == 0)
+					{
+						return true;
+					}
+					else if(Game_main_class.Board[dest_x][dest_y] < 16)   // Cutting opponents
+					{
+						return true;
+					} 
+					else                   //  This will never reach
+						return false;
+				}*/
 				else
 					return false;
 			}
-			else
-				return false;
-		}
-
-		// moves vertically
-		else if(y_distance == 0)
-		{
-			
+			else return false;
 		}
 		else
 			return false;
-
-
-		return false;         ///////////////////   this line is to be deleted
-		}
-		
-		
-		// horizontal moving
-		/*if ((x_distance >= 1 || x_distance <= 7) && y_distance == 0 && dest_x < 8 && dest_x > -1
-				&& Game_main_class.Board[dest_x][dest_y] == 0) {
-			if (turn == "black" && piece_id == 1 && piece_id == 8) {
-				return true;
-			} else if (turn == "white" && piece_id == 17 && piece_id <= 24) {
-				return true;
-			} else {
-				System.out.println("ROOK horizontal\n");
-				return false;
-			}
-
-		}
-		// vertical moving
-		else if ((y_distance >= 1 || y_distance <= 7) && x_distance == 0 && dest_x < 8 && dest_x > -1
-				&& Game_main_class.Board[dest_x][dest_y] == 0) {
-		}
-		if (turn == "black" && piece_id == 1 && piece_id == 8) {
-			return true;
-		} else if (turn == "white" && piece_id == 17 && piece_id <= 24) {
-			return true;
-		} else {
-			System.out.println("ROOK Vertical\n");
-			return false;
-		}
-
 	}
 
-	public boolean[][] drawPath() {
+	public boolean[][] drawPath() 
+	{
+		//Testing purpose only
+		Game_main_class.Board[1][0] = 0;
+		Game_main_class.Board[0][1] = 0;
+		Game_main_class.Board[0][2] = 0;
+		Game_main_class.Board[1][7] = 0;
+		Game_main_class.Board[0][6] = 0;
+		Game_main_class.Board[0][5] = 30;
+		
+		
+		
 		boolean path[][] = new boolean[8][8];
-		for (int i = 0; i < 8; i++) {
-			for (int j = 0; j < 8; j++) {
-				path[i][j] = false;// path[i][j] = isValidPath(i,j);
+		for(int i=0;i<8;i++)
+		{
+			for(int j=0;j<8;j++)
+			{
+				/*path[i][j] = false;*/path[i][j] = isValidPath(i,j);
 			}
 		}
+		
+		
+		
+		// ------------------------------------------------------------------------------
 		// For testing purpose only
-
-		Game_main_class.Board[2][1] = 18;
-		path[2][1] = isValidPath(2, 1);
-		path[2][0] = isValidPath(2, 0);
-		path[3][0] = isValidPath(3, 0);
-		for (int i = 0; i < 8; i++) {
-			for (int j = 0; j < 8; j++) {
-				System.out.print(path[i][j] + " ");
+				
+		
+		
+		
+		for(int i=0;i<8;i++)
+		{
+			for(int j=0;j<8;j++)
+			{
+				System.out.print(path[i][j]+" ");
 			}
 			System.out.println();
 		}
-		return path;
-	}
-
-}*/
-
-
-
-
-
+		
+		return null;       //  Change this later
+	}		
+}			

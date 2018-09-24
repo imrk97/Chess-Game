@@ -7,7 +7,7 @@ package chess_Game;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import com.sun.org.apache.bcel.internal.generic.BIPUSH;
+
 
 import Game_logical.BISHOP;
 import Game_logical.Game_main_class;
@@ -15,6 +15,7 @@ import Game_logical.KNIGHT;
 import Game_logical.PAWN;
 import Game_logical.Piece;
 import Game_logical.Player;
+import Game_logical.ROOK;
 
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -93,6 +94,13 @@ public class Chess_Board extends JFrame implements ActionListener
 						bishop.drawPath();
 						
 						System.out.println("Bishop pressed");
+					}
+					else if(piece_in_button == 8)
+					{
+						ROOK rook = new ROOK(i,j,piece_in_button,turn);
+						rook.drawPath();
+						
+						System.out.println("Rook pressed");
 					}
 				}
 			}
