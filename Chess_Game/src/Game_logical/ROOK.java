@@ -58,7 +58,7 @@ public class ROOK extends Piece
 		System.out.println("x = " + x_pos + "\ny = " + y_pos);
 		System.out.println("x dist = " + x_distance + "y dist = " + y_distance);
 		System.out.println("x dest = " + dest_x + " y dest = " + dest_y);
-		//moves horizontally
+		//moves horizontally and vertically
 		if((x_distance == 0 && y_distance != 0) || (x_distance != 0 && y_distance == 0))
 		{
 			if(turn == "white" && piece_id <= 16 && (Game_main_class.Board[dest_x][dest_y] > 16 || Game_main_class.Board[dest_x][dest_y] == 0))
@@ -128,7 +128,7 @@ public class ROOK extends Piece
 					{
 						return true;
 					}
-					else if(Game_main_class.Board[dest_x][dest_y] < 16)   // Cutting opponents
+					else if(Game_main_class.Board[dest_x][dest_y] <= 16)   // Cutting opponents
 					{
 						return true;
 					} 
