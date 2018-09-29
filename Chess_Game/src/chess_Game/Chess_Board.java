@@ -122,6 +122,7 @@ import Game_logical.Game_main_class;
 import Game_logical.KNIGHT;
 import Game_logical.PAWN;
 import Game_logical.Player;
+import Game_logical.QUEEN;
 import Game_logical.ROOK;
 
 //import chess_Game.Pieces_btn;
@@ -240,6 +241,13 @@ public class Chess_Board extends JFrame implements ActionListener
 						rook.drawPath();
 						
 						System.out.println("Rook pressed");
+					}
+					else if(piece_in_button == 5)
+					{
+						QUEEN queen = new QUEEN(i,j,piece_in_button,turn);
+						queen.drawPath();
+						
+						System.out.println("Queen pressed");
 					}
 				}
 			}

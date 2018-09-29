@@ -1,23 +1,82 @@
-//created by imrk97
-
 package Game_logical;
 
-import chess_Game.*;
 
-public class ROOK extends Piece 
+public class QUEEN extends Piece
 {
-	Piece_Type type;
+	// Piece_Type type;
 	String turn;
-	//int up,down,left,right,x;
-	int row,col;
-	
-	public ROOK(int x, int y, int piece_in_button_id, String turn)
+		
+		
+	public QUEEN(int x, int y, int piece_in_button_id, String turn)
 	{
 		super(x, y, piece_in_button_id);
-		// type=Piece_Type.Rook;
-		this.turn = turn;
+		// type = piece_name;
+		this.turn = turn; // Keeps track of currently whose turn is going on
+	}
+		
+		
+	//Bishop
+	boolean upRight(int dest_x,int dest_y)
+	{
+		int i,j;
+		i = dest_x + 1;
+		j = dest_y - 1;
+		while(i < x_pos && j > y_pos)
+		{
+			if(Game_main_class.Board[i][j] != 0)
+				return true;     // Path is blocked
+			i++;
+			j--;
+		}
+		return false; // Path is not blocked
 	}
 	
+	boolean downRight(int dest_x,int dest_y)
+	{
+		int i,j;
+		i = dest_x - 1;
+		j = dest_y - 1;
+		while(i > x_pos && j > y_pos)
+		{
+			if(Game_main_class.Board[i][j] != 0)
+				return true;     // Path is blocked
+			i--;
+			j--;
+		}
+		return false;
+	}
+	boolean upLeft(int dest_x,int dest_y)
+	{
+		int i,j;
+		i = dest_x + 1;
+		j = dest_y + 1;
+		while(i < x_pos && j < y_pos)
+		{
+			if(Game_main_class.Board[i][j] != 0)
+				return true;     // Path is blocked
+			i++;
+			j++;
+		}
+		return false; // Path is not blocked
+	}
+		
+	boolean downLeft(int dest_x,int dest_y)
+	{
+		int i,j;
+		i = dest_x - 1;
+		j = dest_y + 1;
+		while(i > x_pos && j < y_pos)
+		{
+			if(Game_main_class.Board[i][j] != 0)
+				return true;     // Path is blocked
+			i--;
+			j++;
+		}
+		return false; // Path is not blocked
+	}
+	//end of bishop moves
+	
+	//start of rook moves
 	boolean up_block(int dest_x, int dest_y)
 	{
 		for(int i=dest_x+1;i<x_pos;i++)
@@ -33,7 +92,7 @@ public class ROOK extends Piece
 				return true;
 		return false;
 	}
-	
+		
 	boolean left_block(int dest_x, int dest_y)
 	{
 		for(int i=dest_y+1;i<y_pos;i++)
@@ -41,7 +100,7 @@ public class ROOK extends Piece
 				return true;
 		return false;
 	}
-	
+		
 	boolean right_block(int dest_x, int dest_y)
 	{
 		for(int i=dest_y-1;i>y_pos;i--)
@@ -49,7 +108,11 @@ public class ROOK extends Piece
 				return true;
 		return false;
 	}
-	
+	//end of rook moves
+		
+		
+
+
 	boolean isValidPath(int dest_x, int dest_y)
 	{
 		int x_distance = Math.abs(dest_x - x_pos); // row distance
@@ -58,7 +121,8 @@ public class ROOK extends Piece
 		System.out.println("x = " + x_pos + "\ny = " + y_pos);
 		System.out.println("x dist = " + x_distance + "y dist = " + y_distance);
 		System.out.println("x dest = " + dest_x + " y dest = " + dest_y);
-		//moves horizontally and vertically
+		
+		//Rook moves
 		if((x_distance == 0 && y_distance != 0) || (x_distance != 0 && y_distance == 0))
 		{
 			if(turn == "white" && piece_id <= 16 && (Game_main_class.Board[dest_x][dest_y] > 16 || Game_main_class.Board[dest_x][dest_y] == 0))
@@ -77,45 +141,6 @@ public class ROOK extends Piece
 					else                   //  This will never reach
 						return false;
 				}
-				/*else if(dest_x > x_pos && down_block(dest_x, dest_y) == false)
-				{
-					if(Game_main_class.Board[dest_x][dest_y] == 0)
-					{
-						return true;
-					}
-					else if(Game_main_class.Board[dest_x][dest_y] > 16)   // Cutting opponents
-					{
-						return true;
-					}
-					else                   //  This will never reach
-						return false;
-				}
-				else if(dest_y < y_pos && left_block(dest_x, dest_y) == false)
-				{
-					if(Game_main_class.Board[dest_x][dest_y] == 0)
-					{
-						return true;
-					}
-					else if(Game_main_class.Board[dest_x][dest_y] > 16)   // Cutting opponents
-					{
-						return true;
-					}
-					else                   //  This will never reach
-						return false;
-				}
-				else if(dest_y > y_pos && right_block(dest_x, dest_y) == false)
-				{
-					if(Game_main_class.Board[dest_x][dest_y] == 0)
-					{
-						return true;
-					}
-					else if(Game_main_class.Board[dest_x][dest_y] > 16)   // Cutting opponents
-					{
-						return true;
-					}
-					else                   //  This will never reach
-						return false;
-				}*/
 				else
 					return false;
 			}
@@ -134,84 +159,87 @@ public class ROOK extends Piece
 					} 
 					else                   //  This will never reach
 						return false;
-				}
-				/*else if(dest_x > x_pos && down_block(dest_x, dest_y) == false)
-				{
-					if(Game_main_class.Board[dest_x][dest_y] == 0)
-					{
-						return true;
-					}
-					else if(Game_main_class.Board[dest_x][dest_y] < 16)   // Cutting opponents
-					{
-						return true;
-					} 
-					else                   //  This will never reach
-						return false;
-				}
-				else if(dest_y < y_pos && left_block(dest_x, dest_y) == false)
-				{
-					if(Game_main_class.Board[dest_x][dest_y] == 0)
-					{
-						return true;
-					}
-					else if(Game_main_class.Board[dest_x][dest_y] < 16)   // Cutting opponents
-					{
-						return true;
-					} 
-					else                   //  This will never reach
-						return false;
-				}
-				else if(dest_y > y_pos && right_block(dest_x, dest_y) == false)
-				{
-					if(Game_main_class.Board[dest_x][dest_y] == 0)
-					{
-						return true;
-					}
-					else if(Game_main_class.Board[dest_x][dest_y] < 16)   // Cutting opponents
-					{
-						return true;
-					} 
-					else                   //  This will never reach
-						return false;
-				}*/
+				}	
 				else
 					return false;
 			}
-			else return false;
+			else
+				return false;
+		}
+		
+		//Bihop moves
+		else if ((x_distance == y_distance) && (x_distance != 0))
+		{
+			if(turn == "white" && piece_id <= 16)
+			{
+				if((dest_x < x_pos && dest_y > y_pos && upRight(dest_x, dest_y) == false) || (dest_x < x_pos && dest_y < y_pos && upLeft(dest_x, dest_y) == false) ||
+						(dest_x > x_pos && dest_y < y_pos && downLeft(dest_x, dest_y) == false) || (dest_x > x_pos && dest_y > y_pos && downRight(dest_x, dest_y) == false))
+				{
+					if(Game_main_class.Board[dest_x][dest_y] > 16)
+					{
+						return true;
+					}
+					else if( Game_main_class.Board[dest_x][dest_y]  == 0)
+					{
+						return true;
+					}
+					else
+						return false;
+				}
+				else
+					return false;
+			}
+			else if(turn == "black" && piece_id > 16)
+			{
+				if((dest_x < x_pos && dest_y > y_pos && upRight(dest_x, dest_y) == false) || (dest_x < x_pos && dest_y < y_pos && upLeft(dest_x, dest_y) == false) ||
+						(dest_x > x_pos && dest_y < y_pos && downLeft(dest_x, dest_y) == false) || (dest_x > x_pos && dest_y > y_pos && downRight(dest_x, dest_y) == false))
+				{
+					if(Game_main_class.Board[dest_x][dest_y] <= 16)
+					{
+						return true;
+					}
+					else if( Game_main_class.Board[dest_x][dest_y]  == 0)
+					{
+						return true;
+					}
+					else
+						return false;
+				}
+				else 
+					return false;
+			}
+			else
+				return false;
 		}
 		else
 			return false;
 	}
 
-	public boolean[][] drawPath() 
+
+	public boolean[][] drawPath()
 	{
-		//Testing purpose only
-		Game_main_class.Board[1][0] = 0;
-		Game_main_class.Board[0][1] = 0;
-		Game_main_class.Board[0][2] = 0;
-		Game_main_class.Board[1][7] = 0;
-		Game_main_class.Board[0][6] = 0;
-		Game_main_class.Board[0][5] = 30;
+		// For testing
+		Game_main_class.Board[1][3] = 0;
+		Game_main_class.Board[1][4] = 0;
+		Game_main_class.Board[1][5] = 0;
+		Game_main_class.Board[3][4] = 17;
+		Game_main_class.Board[2][6] = 20;
 		
 		
-		
+			
 		boolean path[][] = new boolean[8][8];
-		for(int i=0;i<8;i++)
+		for (int i = 0; i < 8; i++) 
 		{
-			for(int j=0;j<8;j++)
+			for (int j = 0; j < 8; j++) 
 			{
-				/*path[i][j] = false;*/path[i][j] = isValidPath(i,j);
+				path[i][j] = isValidPath(i,j);
 			}
 		}
-		
 		
 		
 		// ------------------------------------------------------------------------------
 		// For testing purpose only
 				
-		
-		
-		
 		for(int i=0;i<8;i++)
 		{
 			for(int j=0;j<8;j++)
@@ -219,8 +247,11 @@ public class ROOK extends Piece
 				System.out.print(path[i][j]+" ");
 			}
 			System.out.println();
-		}
-		
-		return null;       //  Change this later
-	}		
-}			
+		}		
+					
+					
+					
+		return null;    // Check later
+	}
+
+}
