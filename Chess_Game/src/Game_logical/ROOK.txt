@@ -1,0 +1,85 @@
+//-----------------------------------------------For White---------------------------------
+
+/*else if(dest_x > x_pos && down_block(dest_x, dest_y) == false)
+				{
+					if(Game_main_class.Board[dest_x][dest_y] == 0)
+					{
+						return true;
+					}
+					else if(Game_main_class.Board[dest_x][dest_y] > 16)   // Cutting opponents
+					{
+						return true;
+					}
+					else                   //  This will never reach
+						return false;
+				}
+				else if(dest_y < y_pos && left_block(dest_x, dest_y) == false)
+				{
+					if(Game_main_class.Board[dest_x][dest_y] == 0)
+					{
+						return true;
+					}
+					else if(Game_main_class.Board[dest_x][dest_y] > 16)   // Cutting opponents
+					{
+						return true;
+					}
+					else                   //  This will never reach
+						return false;
+				}
+				else if(dest_y > y_pos && right_block(dest_x, dest_y) == false)
+				{
+					if(Game_main_class.Board[dest_x][dest_y] == 0)
+					{
+						return true;
+					}
+					else if(Game_main_class.Board[dest_x][dest_y] > 16)   // Cutting opponents
+					{
+						return true;
+					}
+					else                   //  This will never reach
+						return false;
+				}*/
+        
+        
+        //------------------For black-------------------------------------------------------
+        
+        
+        /*else if(dest_x > x_pos && down_block(dest_x, dest_y) == false)
+				{
+					if(Game_main_class.Board[dest_x][dest_y] == 0)
+					{
+						return true;
+					}
+					else if(Game_main_class.Board[dest_x][dest_y] < 16)   // Cutting opponents
+					{
+						return true;
+					} 
+					else                   //  This will never reach
+						return false;
+				}
+				else if(dest_y < y_pos && left_block(dest_x, dest_y) == false)
+				{
+					if(Game_main_class.Board[dest_x][dest_y] == 0)
+					{
+						return true;
+					}
+					else if(Game_main_class.Board[dest_x][dest_y] < 16)   // Cutting opponents
+					{
+						return true;
+					} 
+					else                   //  This will never reach
+						return false;
+				}
+				else if(dest_y > y_pos && right_block(dest_x, dest_y) == false)
+				{
+					if(Game_main_class.Board[dest_x][dest_y] == 0)
+					{
+						return true;
+					}
+					else if(Game_main_class.Board[dest_x][dest_y] < 16)   // Cutting opponents
+					{
+						return true;
+					} 
+					else                   //  This will never reach
+						return false;
+				}*/
