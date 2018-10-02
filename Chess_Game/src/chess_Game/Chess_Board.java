@@ -114,7 +114,9 @@ public class Chess_Board extends JFrame implements ActionListener
 package chess_Game;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import Game_logical.BISHOP;
@@ -146,6 +148,7 @@ public class Chess_Board extends JFrame implements ActionListener
 	public Chess_Board()
 	{
 		super("Chess Game");
+		setContentPane(new JLabel(new ImageIcon("images//Background.jpg")));
 		setResizable(false);
 		//setSize(1017,538);
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -157,10 +160,13 @@ public class Chess_Board extends JFrame implements ActionListener
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		this.setUndecorated(true);
 		JPanel panel = new JPanel();
+		panel.setOpaque(false);
+		panel.setBackground(new Color(0, 0, 0));
 		getContentPane().add(panel);
 		panel.setLayout(null);
 	//
 		JPanel panel_1 = new JPanel();
+		panel_1.setOpaque(false);
 		panel_1.setBackground(Color.WHITE);
 		panel_1.setBounds(0, 0, 310, 740);
 		panel.add(panel_1);
@@ -171,6 +177,7 @@ public class Chess_Board extends JFrame implements ActionListener
 		p.setLayout(new GridLayout(8, 8, 0, 0));
 		
 		JPanel panel_2 = new JPanel();
+		panel_2.setOpaque(false);
 		panel_2.setBackground(Color.WHITE);
 		panel_2.setBounds(1050, 0, 310, 740);
 		panel.add(panel_2);
@@ -190,7 +197,7 @@ public class Chess_Board extends JFrame implements ActionListener
 			}
 		}
 		
-		add(panel);
+		getContentPane().add(panel);
 		
 		setVisible(true);
 	}
