@@ -8,7 +8,6 @@
  */
 package Game_logical;
 
-import chess_Game.Piece_Type;
 import java.lang.Math;
 
 public class PAWN extends Piece

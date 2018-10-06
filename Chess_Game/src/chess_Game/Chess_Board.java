@@ -157,8 +157,8 @@ public class Chess_Board extends JFrame implements ActionListener
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
 		
 		///Dimension contentSize = this.getContentPane().getSize();
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-		this.setUndecorated(true);
+		//this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		//this.setUndecorated(true);
 		JPanel panel = new JPanel();
 		panel.setOpaque(false);
 		panel.setBackground(new Color(0, 0, 0));

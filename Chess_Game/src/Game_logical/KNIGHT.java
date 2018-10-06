@@ -1,3 +1,12 @@
+/**
+ * Created by Rahul on 24-Sep-2018
+ * 
+ */
+
+/**
+ * @author Payel
+ *
+ */
 package Game_logical;
 
 public class KNIGHT extends Piece {

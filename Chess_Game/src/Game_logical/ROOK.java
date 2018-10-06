@@ -192,6 +192,7 @@ public class ROOK extends Piece
 		Game_main_class.Board[1][7] = 0;
 		Game_main_class.Board[0][6] = 0;
 		Game_main_class.Board[0][5] = 30;
+		Game_main_class.Board[4][0] = 27;
 		
 		
 		
