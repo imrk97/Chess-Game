@@ -109,9 +109,8 @@ public class Chess_Board extends JFrame implements ActionListener
 	}
 }
 */                                                                      //     end
-
-
 package chess_Game;
+//For testing
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
