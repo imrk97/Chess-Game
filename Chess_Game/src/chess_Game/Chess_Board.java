@@ -167,18 +167,19 @@ public class Chess_Board extends JFrame implements ActionListener
 		JPanel panel_1 = new JPanel();
 		panel_1.setOpaque(false);
 		panel_1.setBackground(Color.WHITE);
-		panel_1.setBounds(0, 0, 310, 740);
+		panel_1.setBounds(0, 0, (int) ((screenSize.height-40)*1.77/4), screenSize.height-35);
 		panel.add(panel_1);
 		
 		JPanel p = new JPanel();
-		p.setBounds(310, 0, 740, 740);
+		//p.setBounds(310, 0, 740, 740);
+		p.setBounds((int) ((screenSize.height-40)*1.77/4), 0, screenSize.height-35, screenSize.height-35);
 		panel.add(p);
 		p.setLayout(new GridLayout(8, 8, 0, 0));
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setOpaque(false);
 		panel_2.setBackground(Color.WHITE);
-		panel_2.setBounds(1050, 0, 310, 740);
+		panel_2.setBounds((int) ((screenSize.height-40)*5.31/4), 0, (int) ((screenSize.height-40)*1.77/4), screenSize.height-35);
 		panel.add(panel_2);
 		for(int i=0;i<8;i++)
 		{

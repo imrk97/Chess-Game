@@ -1,4 +1,4 @@
-package ChessyPack;
+package Frontend;
 
 public class MainChess {
 
