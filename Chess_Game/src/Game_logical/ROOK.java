@@ -2,14 +2,24 @@
 
 package Game_logical;
 
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+//import javax.swing.border.LineBorder;
+
 import chess_Game.*;
 
-public class ROOK extends Piece 
+public class ROOK extends Piece implements ActionListener
 {
 	Piece_Type type;
 	String turn;
 	//int up,down,left,right,x;
+	ImageIcon ii = new ImageIcon("images//validPath.png");
 	int row,col;
+	boolean path[][] = new boolean[8][8];
 	
 	public ROOK(int x, int y, int piece_in_button_id, String turn)
 	{
@@ -68,10 +78,13 @@ public class ROOK extends Piece
 				{
 					if(Game_main_class.Board[dest_x][dest_y] == 0)
 					{
+						Chess_Board.button[dest_x][dest_y].setIcon(resize(ii));
 						return true;
 					}
 					else if(Game_main_class.Board[dest_x][dest_y] > 16)   // Cutting opponents
 					{
+						//Chess_Board.button[dest_x][dest_y].setIcon(resize(ii));
+						Chess_Board.button[dest_x][dest_y].setBackground(new Color(219, 6, 12));
 						return true;
 					}
 					else                   //  This will never reach
@@ -126,10 +139,13 @@ public class ROOK extends Piece
 				{
 					if(Game_main_class.Board[dest_x][dest_y] == 0)
 					{
+						Chess_Board.button[dest_x][dest_y].setIcon(resize(ii));
 						return true;
 					}
 					else if(Game_main_class.Board[dest_x][dest_y] <= 16)   // Cutting opponents
 					{
+						//Chess_Board.button[dest_x][dest_y].setIcon(resize(ii));
+						Chess_Board.button[dest_x][dest_y].setBackground(new Color(219, 6, 12));
 						return true;
 					} 
 					else                   //  This will never reach
@@ -196,12 +212,12 @@ public class ROOK extends Piece
 		
 		
 		
-		boolean path[][] = new boolean[8][8];
+		//boolean path[][] = new boolean[8][8];
 		for(int i=0;i<8;i++)
 		{
 			for(int j=0;j<8;j++)
 			{
-				/*path[i][j] = false;*/path[i][j] = isValidPath(i,j);
+				path[i][j] = isValidPath(i,j);
 			}
 		}
 		
@@ -223,5 +239,31 @@ public class ROOK extends Piece
 		}
 		
 		return null;       //  Change this later
-	}		
+	}
+	ImageIcon resize(ImageIcon img)
+	{
+		Image new_img = img.getImage();
+		Image resized_img = new_img.getScaledInstance(84, 84, java.awt.Image.SCALE_SMOOTH);
+		return new ImageIcon(resized_img);
+	}
+	
+	public void actionPerformed(ActionEvent e) 
+	{
+		//boolean drawnpath[][] = drawPath();
+		System.out.println("abc");
+		for(int i=0;i<8;i++)
+		{
+			for(int j=0;j<8;j++)
+			{
+				if(e.getSource() == Chess_Board.button[i][j] && path[i][j] == true)
+				{
+					System.out.println("ABC");
+					int temp = Game_main_class.Board[i][j];
+					Game_main_class.Board[i][j] = Game_main_class.Board[x_pos][y_pos];
+					Game_main_class.Board[x_pos][y_pos] = temp;
+				}
+			}
+		}
+		Chess_Board.reDraw();
+	}
 }			

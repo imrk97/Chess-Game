@@ -16,10 +16,10 @@ import javax.swing.JButton;
 public class Pieces_btn extends JButton
 {	
 	int x,y;
-	ImageIcon b_king,b_queen,b_bishop1,b_bishop2,b_knight1,b_knight2,b_rook1,b_rook2;
-	ImageIcon b_pawn1,b_pawn2,b_pawn3,b_pawn4,b_pawn5,b_pawn6,b_pawn7,b_pawn8;
-	ImageIcon w_king,w_queen,w_bishop1,w_bishop2,w_knight1,w_knight2,w_rook1,w_rook2;
-	ImageIcon w_pawn1,w_pawn2,w_pawn3,w_pawn4,w_pawn5,w_pawn6,w_pawn7,w_pawn8;
+	static ImageIcon b_king,b_queen,b_bishop1,b_knight1,b_knight2,b_rook1;
+	static ImageIcon b_pawn1;
+	static ImageIcon w_king,w_queen,w_bishop1,w_knight1,w_knight2,w_rook1;
+	static ImageIcon w_pawn1;
 	public Pieces_btn(int i,int j)
 	{
 		b_queen = new ImageIcon("images//B_Queen.png");
@@ -169,7 +169,7 @@ public class Pieces_btn extends JButton
 			Game_main_class.Board[i][j] = Piece_Type.Blank.ordinal();
 		}
 	}
-	ImageIcon resize(ImageIcon img)
+	static ImageIcon resize(ImageIcon img)
 	{
 		Image new_img = img.getImage();
 		Image resized_img = new_img.getScaledInstance(84, 84, java.awt.Image.SCALE_SMOOTH);

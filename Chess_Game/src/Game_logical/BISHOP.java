@@ -8,10 +8,18 @@
  */
 package Game_logical;
 
+import java.awt.Color;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
+import chess_Game.Chess_Board;
+
 public class BISHOP extends Piece {
 	// Piece_Type type;
 	String turn;
-	
+	ImageIcon ii = new ImageIcon("images//validPath.png");
+
 	
 	public BISHOP(int x, int y, int piece_in_button_id, String turn) {
 		super(x, y, piece_in_button_id);
@@ -95,12 +103,14 @@ public class BISHOP extends Piece {
 				if((dest_x < x_pos && dest_y > y_pos && upRight(dest_x, dest_y) == false) || (dest_x < x_pos && dest_y < y_pos && upLeft(dest_x, dest_y) == false) ||
 						(dest_x > x_pos && dest_y < y_pos && downLeft(dest_x, dest_y) == false) || (dest_x > x_pos && dest_y > y_pos && downRight(dest_x, dest_y) == false))
 				{
-					if(Game_main_class.Board[dest_x][dest_y] > 16)
+					if( Game_main_class.Board[dest_x][dest_y]  == 0)
 					{
+						Chess_Board.button[dest_x][dest_y].setIcon(resize(ii));
 						return true;
 					}
-					else if( Game_main_class.Board[dest_x][dest_y]  == 0)
+					else if(Game_main_class.Board[dest_x][dest_y] > 16)
 					{
+						Chess_Board.button[dest_x][dest_y].setBackground(new Color(219, 6, 12));
 						return true;
 					}
 					else
@@ -114,12 +124,14 @@ public class BISHOP extends Piece {
 				if((dest_x < x_pos && dest_y > y_pos && upRight(dest_x, dest_y) == false) || (dest_x < x_pos && dest_y < y_pos && upLeft(dest_x, dest_y) == false) ||
 						(dest_x > x_pos && dest_y < y_pos && downLeft(dest_x, dest_y) == false) || (dest_x > x_pos && dest_y > y_pos && downRight(dest_x, dest_y) == false))
 				{
-					if(Game_main_class.Board[dest_x][dest_y] <= 16)
+					if( Game_main_class.Board[dest_x][dest_y]  == 0)
 					{
+						Chess_Board.button[dest_x][dest_y].setIcon(resize(ii));
 						return true;
 					}
-					else if( Game_main_class.Board[dest_x][dest_y]  == 0)
+					else if(Game_main_class.Board[dest_x][dest_y] <= 16)
 					{
+						Chess_Board.button[dest_x][dest_y].setBackground(new Color(219, 6, 12));
 						return true;
 					}
 					else
@@ -176,5 +188,10 @@ public class BISHOP extends Piece {
 		return null;           // modify this line
 	}
 
-	
+	ImageIcon resize(ImageIcon img)
+	{
+		Image new_img = img.getImage();
+		Image resized_img = new_img.getScaledInstance(84, 84, java.awt.Image.SCALE_SMOOTH);
+		return new ImageIcon(resized_img);
+	}
 }

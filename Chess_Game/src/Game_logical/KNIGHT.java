@@ -9,10 +9,18 @@
  */
 package Game_logical;
 
+import java.awt.Color;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
+import chess_Game.Chess_Board;
+
 public class KNIGHT extends Piece {
 
 	//Piece_Type type;
 	String turn;
+	ImageIcon ii = new ImageIcon("images//validPath.png");
 	public KNIGHT(int x,int y,int piece_in_button_id, String turn)
 	{
 		super(x,y,piece_in_button_id);
@@ -33,18 +41,31 @@ public class KNIGHT extends Piece {
 		{
 			if(turn == "white" && piece_id <= 16)
 			{
-				if(Game_main_class.Board[dest_x][dest_y] == 0 || Game_main_class.Board[dest_x][dest_y] > 16)
+				if(Game_main_class.Board[dest_x][dest_y] == 0)
 				{
+					Chess_Board.button[dest_x][dest_y].setIcon(resize(ii));
+					return true;
+				}
+				else if(Game_main_class.Board[dest_x][dest_y] > 16)
+				{
+					Chess_Board.button[dest_x][dest_y].setBackground(new Color(219, 6, 12));
 					return true;
 				}
 				else {
 					System.out.println("A");
 					return false;}
 			}
+			
 			else if(turn == "black" && piece_id > 16)
 			{
-				if(/*Game_main_class.Board[dest_x][dest_y] == 0 || */Game_main_class.Board[dest_x][dest_y] <= 16)
+				if(Game_main_class.Board[dest_x][dest_y] == 0)
 				{
+					Chess_Board.button[dest_x][dest_y].setIcon(resize(ii));
+					return true;
+				}
+				else if(Game_main_class.Board[dest_x][dest_y] <= 16)
+				{
+					Chess_Board.button[dest_x][dest_y].setBackground(new Color(219, 6, 12));
 					return true;
 				}
 				else{
@@ -59,8 +80,14 @@ public class KNIGHT extends Piece {
 		{
 			if(turn == "white" && piece_id <= 16)
 			{
-				if(Game_main_class.Board[dest_x][dest_y] == 0 || Game_main_class.Board[dest_x][dest_y] > 16)
+				if(Game_main_class.Board[dest_x][dest_y] == 0)
 				{
+					Chess_Board.button[dest_x][dest_y].setIcon(resize(ii));
+					return true;
+				}
+				else if(Game_main_class.Board[dest_x][dest_y] > 16)
+				{
+					Chess_Board.button[dest_x][dest_y].setBackground(new Color(219, 6, 12));
 					return true;
 				}
 				else{
@@ -69,8 +96,14 @@ public class KNIGHT extends Piece {
 			}
 			else if(turn == "black" && piece_id > 16)
 			{
-				if(/*Game_main_class.Board[dest_x][dest_y] == 0 || */Game_main_class.Board[dest_x][dest_y] <= 16)
+				if(Game_main_class.Board[dest_x][dest_y] == 0)
 				{
+					Chess_Board.button[dest_x][dest_y].setIcon(resize(ii));
+					return true;
+				}
+				else if(Game_main_class.Board[dest_x][dest_y] <= 16)
+				{
+					Chess_Board.button[dest_x][dest_y].setBackground(new Color(219, 6, 12));
 					return true;
 				}
 				else{
@@ -116,5 +149,11 @@ public class KNIGHT extends Piece {
 		}
 		
 		return null;           // modify this line
+	}
+	ImageIcon resize(ImageIcon img)
+	{
+		Image new_img = img.getImage();
+		Image resized_img = new_img.getScaledInstance(84, 84, java.awt.Image.SCALE_SMOOTH);
+		return new ImageIcon(resized_img);
 	}
 }

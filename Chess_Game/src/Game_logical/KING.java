@@ -15,6 +15,7 @@ public class KING extends Piece
 {
 	Piece_Type type;
 	String turn;
+	boolean path[][] = new boolean[8][8];
 	
 	public KING(int x, int y, int piece_in_button_id, String turn)
 	{
@@ -144,8 +145,8 @@ public class KING extends Piece
 			if(j-2 >= 0 && ((piece_id == 4 && (Game_main_class.Board[i-1][j-2] == 18 || Game_main_class.Board[i-1][j-2] == 23))) || 
 					((piece_id == 20 && (Game_main_class.Board[i-1][j-2] == 2 || Game_main_class.Board[i-1][j-2] == 7))))
 				flag = true;
-			if(j+2 <= 7 && ((piece_id == 4 && (Game_main_class.Board[i-1][j-2] == 18 || Game_main_class.Board[i-1][j-2] == 23))) || 
-					((piece_id == 20 && (Game_main_class.Board[i-1][j-2] == 2 || Game_main_class.Board[i-1][j-2] == 7))))
+			if(j+2 <= 7 && ((piece_id == 4 && (Game_main_class.Board[i-1][j+2] == 18 || Game_main_class.Board[i-1][j+2] == 23))) || 
+					((piece_id == 20 && (Game_main_class.Board[i-1][j+2] == 2 || Game_main_class.Board[i-1][j+2] == 7))))
 				flag = true;
 		}
 		if(i+1 <= 7)
@@ -153,8 +154,8 @@ public class KING extends Piece
 			if(j-2 >= 0 && ((piece_id == 4 && (Game_main_class.Board[i+1][j-2] == 18 || Game_main_class.Board[i+1][j-2] == 23))) || 
 					((piece_id == 20 && (Game_main_class.Board[i+1][j-2] == 2 || Game_main_class.Board[i+1][j-2] == 7))))
 				flag = true;
-			if(j+2 <= 7 && ((piece_id == 4 && (Game_main_class.Board[i-1][j-2] == 18 || Game_main_class.Board[i-1][j-2] == 23))) || 
-					((piece_id == 20 && (Game_main_class.Board[i-1][j-2] == 2 || Game_main_class.Board[i-1][j-2] == 7))))
+			if(j+2 <= 7 && ((piece_id == 4 && (Game_main_class.Board[i+1][j+2] == 18 || Game_main_class.Board[i+1][j+2] == 23))) || 
+					((piece_id == 20 && (Game_main_class.Board[i+1][j+2] == 2 || Game_main_class.Board[i+1][j+2] == 7))))
 				flag = true;
 		}
 		if(i+2 <= 7)
@@ -210,40 +211,89 @@ public class KING extends Piece
 		boolean flag = false;
 		if(i+1 <= 7)   //Downside
 		{
-			if(j+1 <= 7 && ((piece_id == 4 && Game_main_class.Board[i+1][j+1] >= 25 && Game_main_class.Board[i+1][j+1] <= 32) 
-					|| (piece_id == 20 && Game_main_class.Board[i+1][j+1] >= 9 && Game_main_class.Board[i+1][j+1] <= 16)))
+			if((piece_id == 4 && Game_main_class.Board[i+1][j] == 20) || (piece_id == 20 && Game_main_class.Board[i+1][j] == 4))
 				flag = true;
-			else if(j-1 >= 0 && ((piece_id == 4 && Game_main_class.Board[i+1][j-1] >= 25 && Game_main_class.Board[i+1][j-1] <= 32) 
-					|| (piece_id == 20 && Game_main_class.Board[i+1][j-1] >= 9 && Game_main_class.Board[i+1][j-1] <= 16)))
+			else if(j+1 <= 7 && ((piece_id == 4 && Game_main_class.Board[i+1][j+1] == 20) || (piece_id == 20 && Game_main_class.Board[i+1][j+1] == 4)))
+				flag = true;
+			else if(j-1 >= 0 && ((piece_id == 4 && Game_main_class.Board[i+1][j+1] == 20) || (piece_id == 20 && Game_main_class.Board[i+1][j+1] == 4)))
 				flag = true;
 		}
 		else if(i-1 >= 0)    // Upside
 		{
-			if(j+1 <= 7 && ((piece_id == 4 && Game_main_class.Board[i-1][j+1] >= 25 && Game_main_class.Board[i-1][j+1] <= 32) 
-					|| (piece_id == 20 && Game_main_class.Board[i-1][j+1] >= 9 && Game_main_class.Board[i-1][j+1] <= 16)))
+			if((piece_id == 4 && Game_main_class.Board[i-1][j] == 20) || (piece_id == 20 && Game_main_class.Board[i-1][j] == 4))
 				flag = true;
-			else if(j-1 >= 0 && ((piece_id == 4 && Game_main_class.Board[i-1][j-1] >= 25 && Game_main_class.Board[i-1][j-1] <= 32) 
-					|| (piece_id == 20 && Game_main_class.Board[i-1][j-1] >= 9 && Game_main_class.Board[i-1][j-1] <= 16)))
+			else if(j+1 <= 7 && ((piece_id == 4 && Game_main_class.Board[i+1][j+1] == 20) || (piece_id == 20 && Game_main_class.Board[i+1][j+1] == 4)))
+				flag = true;
+			else if(j-1 >= 0 && ((piece_id == 4 && Game_main_class.Board[i+1][j+1] == 20) || (piece_id == 20 && Game_main_class.Board[i+1][j+1] == 4)))
 				flag = true;
 		}
-		else
+		else if(j+1<=7 && ((piece_id == 4 && Game_main_class.Board[i][j+1] == 20) || piece_id == 20 && Game_main_class.Board[i][j+1] == 4))
+			flag = true;
+		else if(j-1<=7 && ((piece_id == 4 && Game_main_class.Board[i][j-1] == 20) || piece_id == 20 && Game_main_class.Board[i][j-1] == 4))
+			flag = true;
 		
-		return false;		
+		return flag;
 	}
 	
 	boolean isValidPath(int dest_x, int dest_y)
 	{
-		if((turn == "white" && piece_id == 4) || (turn == "black" && piece_id == 20))
+		if((x_pos != dest_x && y_pos != dest_y) && ((turn == "white" && piece_id == 4) || (turn == "black" && piece_id == 20)))
 		{
-			if(checkedByRook(dest_x, dest_y) == true || checkedByBishop(dest_x, dest_y)==true || checkedByKnight(dest_x, dest_y)==true ||checkedByPawn(dest_x, dest_y)==true || che)
+			if(checkedByRook(dest_x, dest_y) == true || checkedByBishop(dest_x, dest_y)==true || checkedByKnight(dest_x, dest_y)==true 
+					||checkedByPawn(dest_x, dest_y)==true || checkedByKing(dest_x, dest_y)==true )
 				return false;
+			else
+				return true;
 		}
-		return false;
+		else
+			return false;
 	}
 
-	boolean[][] drawPath()
+	public boolean[][] drawPath()
 	{
+		// For testing
+				Game_main_class.Board[0][0] = 0;
+				Game_main_class.Board[0][1] = 0;
+				Game_main_class.Board[0][2] = 0;
+				Game_main_class.Board[0][4] = 0;
+				Game_main_class.Board[1][0] = 0;
+				Game_main_class.Board[1][1] = 0;
+				Game_main_class.Board[1][2] = 0;
+				Game_main_class.Board[1][3] = 0;
+				Game_main_class.Board[1][4] = 0;
+				//Game_main_class.Board[0][5] = 0;
+				
+				
+					
+				//boolean path[][] = new boolean[8][8];
+				/*for (int i = x_pos-1; i < x_pos+1; i++) 
+				{
+					for (int j = y_pos-1; j < y_pos+1; j++) 
+					{
+						if(i >= 0 && i < 8 && j >=0 && j < 8)
+							path[i][j] = isValidPath(i,j);
+					}
+				}*/
+				
+				path[0][2] = isValidPath(0, 2);
+				
+				
+				// ------------------------------------------------------------------------------
+				// For testing purpose only
+						
+				for(int i=0;i<8;i++)
+				{
+					for(int j=0;j<8;j++)
+					{
+						System.out.print(path[i][j]+" ");
+					}
+					System.out.println();
+				}		
+							
+							
+							
+				return null;    // Check later
+			
 		
-		return null;
 	}
 }	

@@ -8,12 +8,21 @@
  */
 package Game_logical;
 
+import java.awt.Color;
+import java.awt.Image;
 import java.lang.Math;
+
+import javax.swing.ImageIcon;
+
+import chess_Game.Chess_Board;
 
 public class PAWN extends Piece
 {
 	//Piece_Type type;
 	String turn;
+	ImageIcon ii = new ImageIcon("images//validPath.png");
+	
+	
 	public PAWN(int x,int y,int piece_in_button_id, String turn)
 	{
 		super(x,y,piece_in_button_id);
@@ -35,10 +44,12 @@ public class PAWN extends Piece
 			//if((y_pos == 1 && alliance == "white" && (Game_main_class.Board[x_pos][y_pos+1] == 0 || Game_main_class.Board[x_pos][y_pos+1] > 16)) || (y_pos == 6 && alliance == "black" && Game_main_class.Board[x_pos][y_pos-1] < 17))
 			if(x_pos == 1 && turn == "white" && piece_id >= 9 && piece_id <= 16 && Game_main_class.Board[x_pos+1][y_pos] == 0)
 			{
+				Chess_Board.button[dest_x][dest_y].setIcon(resize(ii));
 				return true;
 			}
 			else if(x_pos == 6 && turn == "black" && piece_id >= 25 && piece_id <= 32 && Game_main_class.Board[x_pos-1][y_pos] == 0)
 			{
+				Chess_Board.button[dest_x][dest_y].setIcon(resize(ii));
 				return true;
 			}
 			else {
@@ -53,10 +64,12 @@ public class PAWN extends Piece
 			{
 				if(turn == "white" && piece_id >= 9 && piece_id <= 16)
 				{
+					Chess_Board.button[dest_x][dest_y].setIcon(resize(ii));
 					return true;
 				}
 				else if(turn == "black" && piece_id >= 25 && piece_id <= 32)
 				{
+					Chess_Board.button[dest_x][dest_y].setIcon(resize(ii));
 					return true;
 				}
 				else{
@@ -69,10 +82,12 @@ public class PAWN extends Piece
 			{
 				if(turn == "white" && piece_id >= 9 && piece_id <= 16 && Game_main_class.Board[dest_x][dest_y] > 16)
 				{
+					Chess_Board.button[dest_x][dest_y].setBackground(new Color(219, 6, 12));
 					return true;
 				}
 				else if(turn == "black" && piece_id >= 25 && piece_id <= 32 && Game_main_class.Board[dest_x][dest_y] < 17)
 				{
+					Chess_Board.button[dest_x][dest_y].setBackground(new Color(219, 6, 12));
 					return true;
 				}
 				else{
@@ -95,7 +110,7 @@ public class PAWN extends Piece
 		{
 			for(int j=0;j<8;j++)
 			{
-				path[i][j] = false;//path[i][j] = isValidPath(i,j);
+				path[i][j] = isValidPath(i,j);
 			}
 		}
 		
@@ -119,5 +134,11 @@ public class PAWN extends Piece
 		
 		
 		return path;
+	}
+	ImageIcon resize(ImageIcon img)
+	{
+		Image new_img = img.getImage();
+		Image resized_img = new_img.getScaledInstance(84, 84, java.awt.Image.SCALE_SMOOTH);
+		return new ImageIcon(resized_img);
 	}
 }
