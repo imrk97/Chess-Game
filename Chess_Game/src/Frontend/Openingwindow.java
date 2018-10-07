@@ -3,7 +3,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.io.File;
-
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -11,14 +10,27 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
-import com.sun.prism.Image;
+//import com.sun.prism.Image;
+
+
 
 public class Openingwindow extends JPanel {
     
 	JFrame window = new JFrame();
 	Openingwindow()
 	{
+	//	window.setLocation(350, 150);
+		window.add(this);
+		window.setSize(1198,765);
+		window.setVisible(true);
+		 window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		  Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		     window.setSize(screenSize.width, screenSize.height);
+		  window.setResizable(false);
+		  
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		try {
 			File sound=new File("songs//X.wav");
 		AudioInputStream sis=AudioSystem.getAudioInputStream(sound);
@@ -27,23 +39,26 @@ public class Openingwindow extends JPanel {
 		clip.start();
 		
 		}catch(Exception e) {System.out.println(e);}
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	    window.setSize(screenSize.width, screenSize.height);
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setContentPane(new JLabel(new ImageIcon("images//mainscreen1.jpg")));
-		//Image scaledImage = originalImage.getScaledInstance(this.getWidth(),this.getHeight(),Image.SCALE_SMOOTH);
-		//window.setContentPane(new JLabel(new ImageIcon("images//mainscreen.jpg").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH)));
-		//window.setLocation(75,5);
-		window.add(this);
-	//	window.setSize(1198,735);
-		window.setVisible(true);
 		
+		try {
+			Thread.sleep(8000);
+			window.dispose();
+			Menu1 x=new Menu1();
+		}catch(Exception e) {System.out.println(e);};
 	}
-	/*public void paint(Graphics g)
-	{
-		Image background =new ImageIcon("images//mainscreen.jpg");
-		//g.drawImage(background.getImage(),0,0,null);
-		g.drawImage(background, 0, 0, getWidth(), getHeight(), this);
-	}*/
-
+	public void paint(Graphics g) {
+	
+		
+	ImageIcon background = new ImageIcon("images//newscreen.jpg");
+	g.drawImage(background.getImage(),0,0,null);
+	
 }
+	
+}	
+
+
+
+
+
+
+
