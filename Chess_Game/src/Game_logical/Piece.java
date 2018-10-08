@@ -26,5 +26,5 @@ public abstract class Piece
 		//this.player = player;
 	}
 	abstract boolean isValidPath(int dest_x,int dest_y);
-	abstract boolean [][]drawPath();
+	abstract boolean [][]drawPath(boolean path[][]);
 }

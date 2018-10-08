@@ -4,12 +4,12 @@ public class Test {
 	static boolean Ta[][] = new boolean[4][4];
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+		boolean d[] = new boolean d[4][4];
 		for(int i=0;i<4;i++)
 		{
 			for(int j=0;j<4;j++)
 			{
-				System.out.print(Ta[i][j]+" ");
+				System.out.print(d[i][j]+" ");
 			}
 			System.out.println();
 		}

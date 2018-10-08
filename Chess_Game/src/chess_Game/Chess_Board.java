@@ -146,7 +146,9 @@ public class Chess_Board extends JFrame implements ActionListener
 	JPanel panel_1;
 	JPanel panel_2;
 	JPanel p;
-	
+	int click = 1;
+	int r,c;
+	boolean pathDrawn[][] = new boolean[8][8];
 	/*public static void main(String args[])
 	{
 		new Chess_Board1();
@@ -223,53 +225,82 @@ public class Chess_Board extends JFrame implements ActionListener
 			{
 				if(e.getSource() == button[i][j])
 				{
-					System.out.println("i="+i+"j="+j);
-					
-					piece_in_button = Game_main_class.Board[i][j];
-					turn = pl_obj.nowTurn();
-					if((piece_in_button >= 9 && piece_in_button <= 16) || (piece_in_button >= 25 && piece_in_button <= 32)) // Pawn
+					if(click == 1)
 					{
-						// For testing purpose only
+						System.out.println("i="+i+"j="+j);
 						
-						
-						PAWN pawn = new PAWN(i,j,piece_in_button,turn);
-						pawn.drawPath();
-						System.out.println("Pressed 1");
+						piece_in_button = Game_main_class.Board[i][j];
+						turn = pl_obj.nowTurn();
+						if((piece_in_button >= 9 && piece_in_button <= 16) || (piece_in_button >= 25 && piece_in_button <= 32)) // Pawn
+						{
+							PAWN pawn = new PAWN(i,j,piece_in_button,turn);
+							pawn.drawPath(pathDrawn);
+							r=i;
+							c=j;
+							System.out.println("Pressed 1");
+						}
+						else if(piece_in_button == 1 || piece_in_button == 8 || piece_in_button == 17 || piece_in_button == 24)  // Rook
+						{
+							ROOK rook = new ROOK(i,j,piece_in_button,turn);
+							rook.drawPath(pathDrawn);
+							r=i;
+							c=j;
+							//rook.actionPerformed(e);
+							System.out.println("Rook pressed");
+						}
+						else if(piece_in_button == 2 || piece_in_button == 7 || piece_in_button == 18 || piece_in_button == 23)  // Knight
+						{
+							KNIGHT knight = new KNIGHT(i,j,piece_in_button,turn);
+							knight.drawPath(pathDrawn);
+							r=i;
+							c=j;
+							System.out.println("Knight pressed");
+						}
+						else if(piece_in_button == 3 || piece_in_button == 6 || piece_in_button == 19 || piece_in_button == 22)  // Bishop
+						{
+							BISHOP bishop = new BISHOP(i,j,piece_in_button,turn);
+							bishop.drawPath(pathDrawn);
+							r=i;
+							c=j;
+							System.out.println("Bishop pressed");
+						}
+						else if(piece_in_button == 4 || piece_in_button == 20)  // King
+						{
+							KING king = new KING(i,j,piece_in_button,turn);
+							king.drawPath(pathDrawn);
+							r=i;
+							c=j;
+							System.out.println("King pressed");
+						}
+						else if(piece_in_button == 5 || piece_in_button == 21)  // Queen
+						{
+							QUEEN queen = new QUEEN(i,j,piece_in_button,turn);
+							queen.drawPath(pathDrawn);
+							r=i;
+							c=j;
+							System.out.println("Queen pressed");
+						}
+						click = 2;
 					}
-					else if(piece_in_button == 1 || piece_in_button == 8 || piece_in_button == 17 || piece_in_button == 24)  // Rook
+					else if(click == 2)
 					{
-						ROOK rook = new ROOK(i,j,piece_in_button,turn);
-						rook.drawPath();
-						
-						System.out.println("Rook pressed");
+						for(int x=0;x<8;x++)
+						{
+							for(int y=0;y<8;y++)
+							{
+								System.out.print(pathDrawn[i][j]+" ");
+							}
+							System.out.println();
+						}
+						if(pathDrawn[i][j] == true)
+						{
+							int temp = Game_main_class.Board[i][j];
+							Game_main_class.Board[i][j] = Game_main_class.Board[r][c];
+							Game_main_class.Board[r][c] = temp;
+						}
+						reDraw();
+						click = 1;
 					}
-					else if(piece_in_button == 2 || piece_in_button == 7 || piece_in_button == 18 || piece_in_button == 23)  // Knight
-					{
-						KNIGHT knight = new KNIGHT(i,j,piece_in_button,turn);
-						knight.drawPath();
-						System.out.println("Knight pressed");
-					}
-					else if(piece_in_button == 3 || piece_in_button == 6 || piece_in_button == 19 || piece_in_button == 22)  // Bishop
-					{
-						BISHOP bishop = new BISHOP(i,j,piece_in_button,turn);
-						bishop.drawPath();
-						
-						System.out.println("Bishop pressed");
-					}
-					else if(piece_in_button == 4 || piece_in_button == 20)  // King
-					{
-						KING king = new KING(i,j,piece_in_button,turn);
-						king.drawPath();
-						System.out.println("King pressed");
-					}
-					else if(piece_in_button == 5 || piece_in_button == 21)  // Queen
-					{
-						QUEEN queen = new QUEEN(i,j,piece_in_button,turn);
-						queen.drawPath();
-						
-						System.out.println("Queen pressed");
-					}
-					
 				}
 			}
 		}
@@ -287,7 +318,11 @@ public class Chess_Board extends JFrame implements ActionListener
 				else
 					button[i][j].setBackground(new Color(176,100,43));//btn[i][j].setBackground(new Color(176,100,43));
 				//White
-				if(Game_main_class.Board[i][j] == 1 || Game_main_class.Board[i][j] == 8)
+				if(Game_main_class.Board[i][j] == 0)
+				{
+					button[i][j].setIcon(null);
+				}
+				else if(Game_main_class.Board[i][j] == 1 || Game_main_class.Board[i][j] == 8)
 				{
 					button[i][j].setIcon(Pieces_btn.resize(Pieces_btn.w_rook1));
 				}
@@ -313,7 +348,7 @@ public class Chess_Board extends JFrame implements ActionListener
 				}
 				else if(Game_main_class.Board[i][j]>=9 && Game_main_class.Board[i][j]<=16) 
 				{
-					button[i][j].setIcon(Pieces_btn.resize(Pieces_btn.b_pawn1));
+					button[i][j].setIcon(Pieces_btn.resize(Pieces_btn.w_pawn1));
 				}
 				
 				//black

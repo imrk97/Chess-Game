@@ -15,7 +15,7 @@ public class KING extends Piece
 {
 	Piece_Type type;
 	String turn;
-	boolean path[][] = new boolean[8][8];
+	//boolean path[][] = new boolean[8][8];
 	
 	public KING(int x, int y, int piece_in_button_id, String turn)
 	{
@@ -35,9 +35,13 @@ public class KING extends Piece
 			if(Game_main_class.Board[i][j] == 0)
 				continue;
 			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 17 || Game_main_class.Board[i][j] == 24)) || (piece_id == 20 && (Game_main_class.Board[i][j] == 1 || Game_main_class.Board[i][j] == 8)))
-				return true;
-			else
-				break;
+				{
+					System.out.println("1");
+					return true;
+				}
+			else {
+				System.out.println("Aa");
+				break;}
 		}
 		i = pos_r;
 		j = pos_c;
@@ -47,9 +51,13 @@ public class KING extends Piece
 			if(Game_main_class.Board[i][j] == 0)
 				continue;
 			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 17 || Game_main_class.Board[i][j] == 24)) || (piece_id == 20 && (Game_main_class.Board[i][j] == 1 || Game_main_class.Board[i][j] == 8)))
+			{
+				System.out.println("2");
 				return true;
-			else
-				break;
+			}
+			else {
+				System.out.println("Ab");
+				break;}
 		}
 		i = pos_r;
 		j = pos_c;
@@ -59,9 +67,13 @@ public class KING extends Piece
 			if(Game_main_class.Board[i][j] == 0)
 				continue;
 			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 17 || Game_main_class.Board[i][j] == 24)) || (piece_id == 20 && (Game_main_class.Board[i][j] == 1 || Game_main_class.Board[i][j] == 8)))
+			{
+				System.out.println("3");
 				return true;
-			else
-				break;
+			}
+			else {
+				System.out.println("Ac");
+				break;}
 		}
 		i = pos_r;
 		j = pos_c;
@@ -71,9 +83,13 @@ public class KING extends Piece
 			if(Game_main_class.Board[i][j] == 0)
 				continue;
 			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 17 || Game_main_class.Board[i][j] == 24)) || (piece_id == 20 && (Game_main_class.Board[i][j] == 1 || Game_main_class.Board[i][j] == 8)))
+			{
+				System.out.println("4");
 				return true;
-			else
-				break;
+			}
+			else {
+				System.out.println("Ad");
+				break;}
 		}
 		return false;
 	}
@@ -89,9 +105,13 @@ public class KING extends Piece
 			if(Game_main_class.Board[i][j] == 0)
 				continue;
 			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 19 || Game_main_class.Board[i][j] == 22)) || (piece_id == 20 && (Game_main_class.Board[i][j] == 3 || Game_main_class.Board[i][j] == 6)))
+			{
+				System.out.println("5");
 				return true;
-			else
-				break;
+			}
+			else {
+				System.out.println("B");
+				break;}
 		}
 		i = pos_r;
 		j = pos_c;
@@ -102,9 +122,13 @@ public class KING extends Piece
 			if(Game_main_class.Board[i][j] == 0)
 				continue;
 			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 19 || Game_main_class.Board[i][j] == 22)) || (piece_id == 20 && (Game_main_class.Board[i][j] == 3 || Game_main_class.Board[i][j] == 6)))
+			{
+				System.out.println("6");
 				return true;
-			else
-				break;
+			}
+			else {
+				System.out.println("B");
+				break;}
 		}
 		i = pos_r;
 		j = pos_c;
@@ -115,9 +139,13 @@ public class KING extends Piece
 			if(Game_main_class.Board[i][j] == 0)
 				continue;
 			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 19 || Game_main_class.Board[i][j] == 22)) || (piece_id == 20 && (Game_main_class.Board[i][j] == 3 || Game_main_class.Board[i][j] == 6)))
+			{
+				System.out.println("7");
 				return true;
-			else
-				break;
+			}
+			else {
+				System.out.println("B");
+				break;}
 		}
 		i = pos_r;
 		j = pos_c;
@@ -128,10 +156,15 @@ public class KING extends Piece
 			if(Game_main_class.Board[i][j] == 0)
 				continue;
 			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 19 || Game_main_class.Board[i][j] == 22)) || (piece_id == 20 && (Game_main_class.Board[i][j] == 3 || Game_main_class.Board[i][j] == 6)))
+			{
+				System.out.println("8");
 				return true;
-			else
-				break;
+			}
+			else {
+				System.out.println("B");
+				break;}
 		}
+		System.out.println("C");
 		return false;
 	}
 	
@@ -144,37 +177,61 @@ public class KING extends Piece
 		{
 			if(j-2 >= 0 && ((piece_id == 4 && (Game_main_class.Board[i-1][j-2] == 18 || Game_main_class.Board[i-1][j-2] == 23))) || 
 					((piece_id == 20 && (Game_main_class.Board[i-1][j-2] == 2 || Game_main_class.Board[i-1][j-2] == 7))))
+			{
+				System.out.println("9");
 				flag = true;
+			}
 			if(j+2 <= 7 && ((piece_id == 4 && (Game_main_class.Board[i-1][j+2] == 18 || Game_main_class.Board[i-1][j+2] == 23))) || 
 					((piece_id == 20 && (Game_main_class.Board[i-1][j+2] == 2 || Game_main_class.Board[i-1][j+2] == 7))))
+			{
+				System.out.println("10");
 				flag = true;
+			}
 		}
 		if(i+1 <= 7)
 		{
 			if(j-2 >= 0 && ((piece_id == 4 && (Game_main_class.Board[i+1][j-2] == 18 || Game_main_class.Board[i+1][j-2] == 23))) || 
 					((piece_id == 20 && (Game_main_class.Board[i+1][j-2] == 2 || Game_main_class.Board[i+1][j-2] == 7))))
+			{
+				System.out.println("11");
 				flag = true;
+			}
 			if(j+2 <= 7 && ((piece_id == 4 && (Game_main_class.Board[i+1][j+2] == 18 || Game_main_class.Board[i+1][j+2] == 23))) || 
 					((piece_id == 20 && (Game_main_class.Board[i+1][j+2] == 2 || Game_main_class.Board[i+1][j+2] == 7))))
+			{
+				System.out.println("12");
 				flag = true;
+			}
 		}
 		if(i+2 <= 7)
 		{
 			if(j-1 >= 0 && ((piece_id == 4 && (Game_main_class.Board[i+2][j-1] == 18 || Game_main_class.Board[i+2][j-1] == 23))) || 
 					((piece_id == 20 && (Game_main_class.Board[i+2][j-1] == 2 || Game_main_class.Board[i+2][j-1] == 7))))
+			{
+				System.out.println("13");
 				flag = true;
+			}
 			if(j+1 <= 7 && ((piece_id == 4 && (Game_main_class.Board[i+2][j+1] == 18 || Game_main_class.Board[i+2][j+1] == 23))) || 
 					((piece_id == 20 && (Game_main_class.Board[i+2][j+1] == 2 || Game_main_class.Board[i+2][j+1] == 7))))
+			{
+				System.out.println("14");
 				flag = true;
+			}
 		}
 		if(i-2 >= 0)
 		{
 			if(j-1 >= 0 && ((piece_id == 4 && (Game_main_class.Board[i-2][j-1] == 18 || Game_main_class.Board[i-2][j-1] == 23))) || 
 					((piece_id == 20 && (Game_main_class.Board[i-2][j-1] == 2 || Game_main_class.Board[i-2][j-1] == 7))))
+			{
+				System.out.println("15");
 				flag = true;
+			}
 			if(j+1 <= 7 && ((piece_id == 4 && (Game_main_class.Board[i-2][j+1] == 18 || Game_main_class.Board[i-2][j+1] == 23))) || 
 					((piece_id == 20 && (Game_main_class.Board[i-2][j+1] == 2 || Game_main_class.Board[i-2][j+1] == 7))))
+			{
+				System.out.println("16");
 				flag = true;
+			}
 		}
 		return flag;
 	}
@@ -188,19 +245,31 @@ public class KING extends Piece
 		{
 			if(j+1 <= 7 && ((piece_id == 4 && Game_main_class.Board[i+1][j+1] >= 25 && Game_main_class.Board[i+1][j+1] <= 32) 
 					|| (piece_id == 20 && Game_main_class.Board[i+1][j+1] >= 9 && Game_main_class.Board[i+1][j+1] <= 16)))
+			{
+				System.out.println("17");
 				flag = true;
+			}
 			else if(j-1 >= 0 && ((piece_id == 4 && Game_main_class.Board[i+1][j-1] >= 25 && Game_main_class.Board[i+1][j-1] <= 32) 
 					|| (piece_id == 20 && Game_main_class.Board[i+1][j-1] >= 9 && Game_main_class.Board[i+1][j-1] <= 16)))
+			{
+				System.out.println("18");
 				flag = true;
+			}
 		}
 		else if(i-1 >= 0)    // Upside
 		{
 			if(j+1 <= 7 && ((piece_id == 4 && Game_main_class.Board[i-1][j+1] >= 25 && Game_main_class.Board[i-1][j+1] <= 32) 
 					|| (piece_id == 20 && Game_main_class.Board[i-1][j+1] >= 9 && Game_main_class.Board[i-1][j+1] <= 16)))
+			{
+				System.out.println("19");
 				flag = true;
+			}
 			else if(j-1 >= 0 && ((piece_id == 4 && Game_main_class.Board[i-1][j-1] >= 25 && Game_main_class.Board[i-1][j-1] <= 32) 
 					|| (piece_id == 20 && Game_main_class.Board[i-1][j-1] >= 9 && Game_main_class.Board[i-1][j-1] <= 16)))
+			{
+				System.out.println("20");
 				flag = true;
+			}
 		}
 		return flag;
 	}
@@ -212,70 +281,101 @@ public class KING extends Piece
 		if(i+1 <= 7)   //Downside
 		{
 			if((piece_id == 4 && Game_main_class.Board[i+1][j] == 20) || (piece_id == 20 && Game_main_class.Board[i+1][j] == 4))
+			{
+				System.out.println("21");
 				flag = true;
+			}
 			else if(j+1 <= 7 && ((piece_id == 4 && Game_main_class.Board[i+1][j+1] == 20) || (piece_id == 20 && Game_main_class.Board[i+1][j+1] == 4)))
+			{
+				System.out.println("22");
 				flag = true;
+			}
 			else if(j-1 >= 0 && ((piece_id == 4 && Game_main_class.Board[i+1][j+1] == 20) || (piece_id == 20 && Game_main_class.Board[i+1][j+1] == 4)))
+			{
+				System.out.println("23");
 				flag = true;
+			}
 		}
 		else if(i-1 >= 0)    // Upside
 		{
 			if((piece_id == 4 && Game_main_class.Board[i-1][j] == 20) || (piece_id == 20 && Game_main_class.Board[i-1][j] == 4))
+			{
+				System.out.println("24");
 				flag = true;
+			}
 			else if(j+1 <= 7 && ((piece_id == 4 && Game_main_class.Board[i+1][j+1] == 20) || (piece_id == 20 && Game_main_class.Board[i+1][j+1] == 4)))
+			{
+				System.out.println("25");
 				flag = true;
+			}
 			else if(j-1 >= 0 && ((piece_id == 4 && Game_main_class.Board[i+1][j+1] == 20) || (piece_id == 20 && Game_main_class.Board[i+1][j+1] == 4)))
+			{
+				System.out.println("26");
 				flag = true;
+			}
 		}
 		else if(j+1<=7 && ((piece_id == 4 && Game_main_class.Board[i][j+1] == 20) || piece_id == 20 && Game_main_class.Board[i][j+1] == 4))
+		{
+			System.out.println("27");
 			flag = true;
+		}
 		else if(j-1<=7 && ((piece_id == 4 && Game_main_class.Board[i][j-1] == 20) || piece_id == 20 && Game_main_class.Board[i][j-1] == 4))
+		{
+			System.out.println("28");
 			flag = true;
+		}
 		
 		return flag;
 	}
 	
 	boolean isValidPath(int dest_x, int dest_y)
 	{
-		if((x_pos != dest_x && y_pos != dest_y) && ((turn == "white" && piece_id == 4) || (turn == "black" && piece_id == 20)))
+		if((x_pos != dest_x || y_pos != dest_y) && ((turn == "white" && piece_id == 4) || (turn == "black" && piece_id == 20)))
 		{
-			if(checkedByRook(dest_x, dest_y) == true || checkedByBishop(dest_x, dest_y)==true || checkedByKnight(dest_x, dest_y)==true 
-					||checkedByPawn(dest_x, dest_y)==true || checkedByKing(dest_x, dest_y)==true )
+			if((checkedByRook(dest_x, dest_y) == true) || (checkedByBishop(dest_x, dest_y)==true) || (checkedByKnight(dest_x, dest_y)==true) 
+					|| (checkedByPawn(dest_x, dest_y)==true) || (checkedByKing(dest_x, dest_y)==true))
 				return false;
-			else
-				return true;
+			else {
+				System.out.println("Ka");
+				return true;}
 		}
-		else
-			return false;
+		else {
+			System.out.println("Kb");
+			return false;}
 	}
 
-	public boolean[][] drawPath()
+	public boolean[][] drawPath(boolean[][] path)
 	{
 		// For testing
 				Game_main_class.Board[0][0] = 0;
 				Game_main_class.Board[0][1] = 0;
-				Game_main_class.Board[0][2] = 0;
+				Game_main_class.Board[0][2] = 22;
 				Game_main_class.Board[0][4] = 0;
 				Game_main_class.Board[1][0] = 0;
 				Game_main_class.Board[1][1] = 0;
 				Game_main_class.Board[1][2] = 0;
 				Game_main_class.Board[1][3] = 0;
 				Game_main_class.Board[1][4] = 0;
+				Game_main_class.Board[3][1] = 18;
+				//Game_main_class.Board[4][4] = 17;
+				Game_main_class.Board[1][5] = 0;
+				Game_main_class.Board[2][6] = 19;
 				//Game_main_class.Board[0][5] = 0;
 				
 				
 					
 				//boolean path[][] = new boolean[8][8];
-				/*for (int i = x_pos-1; i < x_pos+1; i++) 
+				for (int i = x_pos-1; i <= x_pos+1; i++) //0
 				{
-					for (int j = y_pos-1; j < y_pos+1; j++) 
+					for (int j = y_pos-1; j <= y_pos+1; j++)  //3 
 					{
-						if(i >= 0 && i < 8 && j >=0 && j < 8)
-							path[i][j] = isValidPath(i,j);
+						if(i >= 0 && i < 8 && j >=0 && j < 8) {
+							System.out.println("i="+i+" j="+j);
+							path[i][j] = isValidPath(i,j);}
 					}
-				}*/
+				}
 				
-				path[0][2] = isValidPath(0, 2);
+				//path[0][2] = isValidPath(0, 2);
 				
 				
 				// ------------------------------------------------------------------------------

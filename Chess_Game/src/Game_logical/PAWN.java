@@ -103,9 +103,9 @@ public class PAWN extends Piece
 			return false;}
 	}
 	
-	public boolean [][]drawPath()
+	public boolean [][]drawPath(boolean[][] path)
 	{
-		boolean path[][] = new boolean[8][8];
+		//boolean path[][] = new boolean[8][8];
 		for(int i=0;i<8;i++)
 		{
 			for(int j=0;j<8;j++)
@@ -133,7 +133,7 @@ public class PAWN extends Piece
 		}
 		
 		
-		return path;
+		return null;
 	}
 	ImageIcon resize(ImageIcon img)
 	{

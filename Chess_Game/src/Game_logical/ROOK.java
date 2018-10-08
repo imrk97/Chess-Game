@@ -12,14 +12,14 @@ import javax.swing.ImageIcon;
 
 import chess_Game.*;
 
-public class ROOK extends Piece implements ActionListener
+public class ROOK extends Piece
 {
 	Piece_Type type;
 	String turn;
 	//int up,down,left,right,x;
 	ImageIcon ii = new ImageIcon("images//validPath.png");
 	int row,col;
-	boolean path[][] = new boolean[8][8];
+	//boolean path[][] = new boolean[8][8];
 	
 	public ROOK(int x, int y, int piece_in_button_id, String turn)
 	{
@@ -199,7 +199,7 @@ public class ROOK extends Piece implements ActionListener
 			return false;
 	}
 
-	public boolean[][] drawPath() 
+	public boolean[][] drawPath(boolean[][] path) 
 	{
 		//Testing purpose only
 		Game_main_class.Board[1][0] = 0;
@@ -238,7 +238,8 @@ public class ROOK extends Piece implements ActionListener
 			System.out.println();
 		}
 		
-		return null;       //  Change this later
+		
+		return path;       //  Change this later
 	}
 	ImageIcon resize(ImageIcon img)
 	{
@@ -247,7 +248,7 @@ public class ROOK extends Piece implements ActionListener
 		return new ImageIcon(resized_img);
 	}
 	
-	public void actionPerformed(ActionEvent e) 
+	/*public void actionPerformed(ActionEvent e) 
 	{
 		//boolean drawnpath[][] = drawPath();
 		System.out.println("abc");
@@ -265,5 +266,5 @@ public class ROOK extends Piece implements ActionListener
 			}
 		}
 		Chess_Board.reDraw();
-	}
+	}*/
 }			

@@ -231,7 +231,7 @@ public class QUEEN extends Piece
 	}
 
 
-	public boolean[][] drawPath()
+	public boolean[][] drawPath(boolean[][] path)
 	{
 		// For testing
 		Game_main_class.Board[1][3] = 0;
@@ -242,7 +242,7 @@ public class QUEEN extends Piece
 		
 		
 			
-		boolean path[][] = new boolean[8][8];
+		//boolean path[][] = new boolean[8][8];
 		for (int i = 0; i < 8; i++) 
 		{
 			for (int j = 0; j < 8; j++) 

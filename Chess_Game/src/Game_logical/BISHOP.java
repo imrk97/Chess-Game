@@ -146,7 +146,7 @@ public class BISHOP extends Piece {
 		else
 			return false;
 	}
-	public boolean[][] drawPath()
+	public boolean[][] drawPath(boolean[][] path)
 	{
 		// For testing
 		Game_main_class.Board[2][0] = 30;
@@ -157,7 +157,7 @@ public class BISHOP extends Piece {
 		
 		
 		
-		boolean path[][] = new boolean[8][8];
+		//boolean path[][] = new boolean[8][8];
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
 				path[i][j] = isValidPath(i,j);
