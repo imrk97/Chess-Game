@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 public class Help extends JPanel {
-	
+	//
 	JFrame window = new JFrame("Chess Game");
 	Help(){
 		
