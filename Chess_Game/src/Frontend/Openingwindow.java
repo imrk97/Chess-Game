@@ -18,7 +18,7 @@ import javax.swing.WindowConstants;
 
 public class Openingwindow extends JPanel {
     
-	JFrame window = new JFrame();
+	JFrame window = new JFrame("Chess Game");
 	Openingwindow()
 	{
 	//	window.setLocation(350, 150);
@@ -32,18 +32,22 @@ public class Openingwindow extends JPanel {
 		  
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		try {
-			File sound=new File("songs//X.wav");
+		
+		File sound=new File("songs//X.wav");
 		AudioInputStream sis=AudioSystem.getAudioInputStream(sound);
 		Clip clip =AudioSystem.getClip();
 		clip.open(sis);
 		clip.start();
 		
-		}catch(Exception e) {System.out.println(e);}
+		Thread.sleep(8000);
+		clip.stop();
 		
-		try {
-			Thread.sleep(8000);
-			window.dispose();
-			Menu1 x=new Menu1();
+		// are na na sheta to kortei para jae menu te ota cholt ethakbe help khulle music stop ar nutun start
+		window.dispose();
+		Menu1 x=new Menu1();
+
+		
+		
 		}catch(Exception e) {System.out.println(e);};
 	}
 	public void paint(Graphics g) {

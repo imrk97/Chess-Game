@@ -6,7 +6,11 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -64,6 +68,7 @@ public class Menu1 extends JFrame implements ActionListener
 		btn1.setBorder(new LineBorder(Color.WHITE, 5, true));
 		btn1.setBounds(558, 129, 245, 59);
 		btn1.setIcon(resize(start));
+		btn1.addActionListener(this);
 		panel.add(btn1);
 		
 		btn2.setBorder(new LineBorder(Color.WHITE, 5, true));
@@ -79,11 +84,13 @@ public class Menu1 extends JFrame implements ActionListener
 		btn4.setBorder(new LineBorder(Color.WHITE, 5, true));
 		btn4.setBounds(558, 444, 245, 59);
 		btn4.setIcon(resize(help));
+		btn4.addActionListener(this);
 		panel.add(btn4);
 		
 		btn5.setBorder(new LineBorder(Color.WHITE, 5, true));
 		btn5.setBounds(558, 549, 245, 59);
 		btn5.setIcon(resize(quit));
+		btn5.addActionListener(this);
 		panel.add(btn5);
 		
 		setVisible(true);
@@ -109,6 +116,18 @@ public class Menu1 extends JFrame implements ActionListener
 		{
 			
 		}
+		else if(e.getSource() == btn4)
+		{
+	         
+			this.dispose();
+			Help oc=new Help();
+		}
+		else if(e.getSource() == btn5)
+		{
+			this.dispose();
+			
+		}
+		
 		
 	}
 }
