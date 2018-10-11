@@ -38,14 +38,15 @@ public class Openingwindow extends JPanel {
 		Clip clip =AudioSystem.getClip();
 		clip.open(sis);
 		clip.start();
+		clip.loop(20);
 		
 		Thread.sleep(8000);
-		clip.stop();
 		
+	   
 		// are na na sheta to kortei para jae menu te ota cholt ethakbe help khulle music stop ar nutun start
 		window.dispose();
+		
 		Menu1 x=new Menu1();
-
 		
 		
 		}catch(Exception e) {System.out.println(e);};
