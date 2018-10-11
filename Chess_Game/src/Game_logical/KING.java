@@ -9,12 +9,19 @@
  */
 package Game_logical;
 
+import java.awt.Color;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
+import chess_Game.Chess_Board;
 import chess_Game.Piece_Type;
 
 public class KING extends Piece 
 {
 	Piece_Type type;
 	String turn;
+	ImageIcon ii = new ImageIcon("images//validPath.png");
 	//boolean path[][] = new boolean[8][8];
 	
 	public KING(int x, int y, int piece_in_button_id, String turn)
@@ -335,31 +342,47 @@ public class KING extends Piece
 			if((checkedByRook(dest_x, dest_y) == true) || (checkedByBishop(dest_x, dest_y)==true) || (checkedByKnight(dest_x, dest_y)==true) 
 					|| (checkedByPawn(dest_x, dest_y)==true) || (checkedByKing(dest_x, dest_y)==true))
 				return false;
-			else {
+			else if(turn == "white" && piece_id == 4 && Game_main_class.Board[dest_x][dest_y] >= 1 && Game_main_class.Board[dest_x][dest_y] <= 16)
+				return false;
+			else if(turn == "black" && piece_id == 20 && Game_main_class.Board[dest_x][dest_y] >= 17 && Game_main_class.Board[dest_x][dest_y] <= 32)
+				return false;
+			else
+			{
 				System.out.println("Ka");
-				return true;}
+				if(Game_main_class.Board[dest_x][dest_y] == 0)
+				{
+					Chess_Board.button[dest_x][dest_y].setIcon(resize(ii));
+					//return true;
+				}
+				else            // Cutting opponents
+				{
+					Chess_Board.button[dest_x][dest_y].setBackground(new Color(219, 6, 12));
+					//return true;
+				}
+				return true;
+			}
 		}
 		else {
 			System.out.println("Kb");
 			return false;}
 	}
 
-	public boolean[][] drawPath(boolean[][] path)
+	public void drawPath(boolean[][] path)
 	{
 		// For testing
-				Game_main_class.Board[0][0] = 0;
-				Game_main_class.Board[0][1] = 0;
-				Game_main_class.Board[0][2] = 22;
-				Game_main_class.Board[0][4] = 0;
-				Game_main_class.Board[1][0] = 0;
-				Game_main_class.Board[1][1] = 0;
-				Game_main_class.Board[1][2] = 0;
-				Game_main_class.Board[1][3] = 0;
-				Game_main_class.Board[1][4] = 0;
-				Game_main_class.Board[3][1] = 18;
-				//Game_main_class.Board[4][4] = 17;
-				Game_main_class.Board[1][5] = 0;
-				Game_main_class.Board[2][6] = 19;
+//				Game_main_class.Board[0][0] = 0;
+//				Game_main_class.Board[0][1] = 0;
+//				Game_main_class.Board[0][2] = 7;
+//				Game_main_class.Board[0][4] = 0;
+//				Game_main_class.Board[1][0] = 0;
+//				Game_main_class.Board[1][1] = 0;
+//				Game_main_class.Board[1][2] = 0;
+//				Game_main_class.Board[1][3] = 0;
+//				Game_main_class.Board[1][4] = 0;
+//				Game_main_class.Board[3][1] = 18;
+//				//Game_main_class.Board[4][4] = 17;
+//				Game_main_class.Board[1][5] = 0;
+//				Game_main_class.Board[2][6] = 19;
 				//Game_main_class.Board[0][5] = 0;
 				
 				
@@ -392,8 +415,14 @@ public class KING extends Piece
 							
 							
 							
-				return null;    // Check later
+				//return null;    // Check later
 			
 		
+	}
+	ImageIcon resize(ImageIcon img)
+	{
+		Image new_img = img.getImage();
+		Image resized_img = new_img.getScaledInstance(84, 84, java.awt.Image.SCALE_SMOOTH);
+		return new ImageIcon(resized_img);
 	}
 }	

@@ -231,14 +231,14 @@ public class QUEEN extends Piece
 	}
 
 
-	public boolean[][] drawPath(boolean[][] path)
+	public void drawPath(boolean[][] path)
 	{
 		// For testing
-		Game_main_class.Board[1][3] = 0;
-		Game_main_class.Board[1][4] = 0;
-		Game_main_class.Board[1][5] = 0;
-		Game_main_class.Board[3][4] = 17;
-		Game_main_class.Board[2][6] = 20;
+//		Game_main_class.Board[1][3] = 0;
+//		Game_main_class.Board[1][4] = 0;
+//		Game_main_class.Board[1][5] = 0;
+//		Game_main_class.Board[3][4] = 17;
+//		Game_main_class.Board[2][6] = 20;
 		
 		
 			
@@ -266,7 +266,7 @@ public class QUEEN extends Piece
 					
 					
 					
-		return null;    // Check later
+		//return null;    // Check later
 	}
 	ImageIcon resize(ImageIcon img)
 	{

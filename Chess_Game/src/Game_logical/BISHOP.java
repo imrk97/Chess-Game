@@ -146,14 +146,14 @@ public class BISHOP extends Piece {
 		else
 			return false;
 	}
-	public boolean[][] drawPath(boolean[][] path)
+	public void drawPath(boolean[][] path)
 	{
 		// For testing
-		Game_main_class.Board[2][0] = 30;
-		Game_main_class.Board[1][1] = 0;
-		Game_main_class.Board[1][3] = 0;
-		Game_main_class.Board[4][6] = 2;
-		Game_main_class.Board[5][7] = 20;
+//		Game_main_class.Board[2][0] = 30;
+//		Game_main_class.Board[1][1] = 0;
+//		Game_main_class.Board[1][3] = 0;
+//		Game_main_class.Board[4][6] = 2;
+//		Game_main_class.Board[5][7] = 20;
 		
 		
 		
@@ -185,7 +185,7 @@ public class BISHOP extends Piece {
 			System.out.println();
 		}
 		
-		return null;           // modify this line
+		//return null;           // modify this line
 	}
 
 	ImageIcon resize(ImageIcon img)

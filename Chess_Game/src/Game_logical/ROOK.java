@@ -199,17 +199,17 @@ public class ROOK extends Piece
 			return false;
 	}
 
-	public boolean[][] drawPath(boolean[][] path) 
+	public void drawPath(boolean[][] path) 
 	{
 		//Testing purpose only
-		Game_main_class.Board[1][0] = 0;
-		Game_main_class.Board[0][1] = 0;
-		Game_main_class.Board[0][2] = 0;
-		Game_main_class.Board[1][7] = 0;
-		Game_main_class.Board[0][6] = 0;
-		Game_main_class.Board[0][5] = 30;
-		Game_main_class.Board[4][0] = 27;
-		
+		//Game_main_class.Board[1][0] = 0;
+//		Game_main_class.Board[0][1] = 0;
+//		Game_main_class.Board[0][2] = 0;
+//		Game_main_class.Board[1][7] = 0;
+//		Game_main_class.Board[0][6] = 0;
+//		Game_main_class.Board[0][5] = 30;
+//		Game_main_class.Board[4][0] = 27;
+//		
 		
 		
 		//boolean path[][] = new boolean[8][8];
@@ -239,7 +239,7 @@ public class ROOK extends Piece
 		}
 		
 		
-		return path;       //  Change this later
+		//return path;       //  Change this later
 	}
 	ImageIcon resize(ImageIcon img)
 	{

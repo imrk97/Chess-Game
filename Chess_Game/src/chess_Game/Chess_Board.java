@@ -294,9 +294,18 @@ public class Chess_Board extends JFrame implements ActionListener
 						}
 						if(pathDrawn[i][j] == true)
 						{
-							int temp = Game_main_class.Board[i][j];
-							Game_main_class.Board[i][j] = Game_main_class.Board[r][c];
-							Game_main_class.Board[r][c] = temp;
+							if(Game_main_class.Board[i][j] == 0)
+							{
+								int temp = Game_main_class.Board[i][j];
+								Game_main_class.Board[i][j] = Game_main_class.Board[r][c];
+								Game_main_class.Board[r][c] = temp;
+							}
+							else
+							{
+								//int temp = Game_main_class.Board[i][j];
+								Game_main_class.Board[i][j] = Game_main_class.Board[r][c];
+								Game_main_class.Board[r][c] = 0;
+							}
 						}
 						reDraw();
 						click = 1;

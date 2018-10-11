@@ -118,14 +118,14 @@ public class KNIGHT extends Piece {
 			System.out.println("G");
 			return false;}
 	}
-	public	boolean[][] drawPath(boolean[][] path)
+	public	void drawPath(boolean[][] path)
 	{
 		//boolean path[][] = new boolean[8][8];
 		for(int i=0;i<8;i++)
 		{
 			for(int j=0;j<8;j++)
 			{
-				path[i][j] = false;//path[i][j] = isValidPath(i,j);
+				path[i][j] = isValidPath(i,j);
 			}
 		}
 		
@@ -134,10 +134,10 @@ public class KNIGHT extends Piece {
 		// ------------------------------------------------------------------------------
 		// For testing purpose only
 		
-		Game_main_class.Board[1][3] = 30;
-		path[2][2] = isValidPath(2,2);
-		path[2][0] = isValidPath(2,0);
-		path[1][3] = isValidPath(1,3);
+		//Game_main_class.Board[1][3] = 30;
+//		path[2][2] = isValidPath(2,2);
+//		path[2][0] = isValidPath(2,0);
+//		path[1][3] = isValidPath(1,3);
 		
 		for(int i=0;i<8;i++)
 		{
@@ -148,7 +148,7 @@ public class KNIGHT extends Piece {
 			System.out.println();
 		}
 		
-		return null;           // modify this line
+		//return null;           // modify this line
 	}
 	ImageIcon resize(ImageIcon img)
 	{
