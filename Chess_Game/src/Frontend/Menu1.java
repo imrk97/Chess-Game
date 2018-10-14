@@ -85,11 +85,13 @@ public class Menu1 extends JFrame implements ActionListener
 		btn2.setBorder(new LineBorder(Color.WHITE, 5, true));
 		btn2.setBounds(558, 234, 245, 59);
 		btn2.setIcon(resize(score));
+		btn2.addActionListener(this);
 		panel.add(btn2);
 		
 		btn3.setBorder(new LineBorder(Color.WHITE, 5, true));
 		btn3.setBounds(558, 339, 245, 59);
 		btn3.setIcon(resize(setting));
+		btn3.addActionListener(this);
 		panel.add(btn3);
 		
 		btn4.setBorder(new LineBorder(Color.WHITE, 5, true));
@@ -121,11 +123,12 @@ public class Menu1 extends JFrame implements ActionListener
 		}
 		else if(e.getSource() == btn2)
 		{
-			
+
 		}
 		else if(e.getSource() == btn3)
 		{
-			
+			this.dispose();
+			Settings ol=new Settings();
 		}
 		else if(e.getSource() == btn4)
 		{
