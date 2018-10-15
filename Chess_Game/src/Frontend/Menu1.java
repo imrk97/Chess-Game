@@ -77,31 +77,31 @@ public class Menu1 extends JFrame implements ActionListener
 		
 		
 		btn1.setBorder(new LineBorder(Color.WHITE, 5, true));
-		btn1.setBounds(558, 129, 245, 59);
+		btn1.setBounds(850, 129, 245, 59);
 		btn1.setIcon(resize(start));
 		btn1.addActionListener(this);
 		panel.add(btn1);
 		
 		btn2.setBorder(new LineBorder(Color.WHITE, 5, true));
-		btn2.setBounds(558, 234, 245, 59);
+		btn2.setBounds(850, 234, 245, 59);
 		btn2.setIcon(resize(score));
 		btn2.addActionListener(this);
 		panel.add(btn2);
 		
 		btn3.setBorder(new LineBorder(Color.WHITE, 5, true));
-		btn3.setBounds(558, 339, 245, 59);
+		btn3.setBounds(850, 339, 245, 59);
 		btn3.setIcon(resize(setting));
 		btn3.addActionListener(this);
 		panel.add(btn3);
 		
 		btn4.setBorder(new LineBorder(Color.WHITE, 5, true));
-		btn4.setBounds(558, 444, 245, 59);
+		btn4.setBounds(850, 444, 245, 59);
 		btn4.setIcon(resize(help));
 		btn4.addActionListener(this);
 		panel.add(btn4);
 		
 		btn5.setBorder(new LineBorder(Color.WHITE, 5, true));
-		btn5.setBounds(558, 549, 245, 59);
+		btn5.setBounds(850, 549, 245, 59);
 		btn5.setIcon(resize(quit));
 		btn5.addActionListener(this);
 		panel.add(btn5);

@@ -6,6 +6,7 @@ import java.io.File;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,7 +20,7 @@ import javax.swing.WindowConstants;
 public class Openingwindow extends JPanel {
     
 	JFrame window = new JFrame("Chess Game");
-	Openingwindow()
+    Openingwindow()
 	{
 	//	window.setLocation(350, 150);
 		window.add(this);
@@ -37,7 +38,11 @@ public class Openingwindow extends JPanel {
 		AudioInputStream sis=AudioSystem.getAudioInputStream(sound);
 		Clip clip =AudioSystem.getClip();
 		clip.open(sis);
-		clip.start();
+		 
+		
+		play(clip);
+//na
+		//clip.start();
 		clip.loop(20);
 		
 		Thread.sleep(8000);
@@ -51,6 +56,16 @@ public class Openingwindow extends JPanel {
 		
 		}catch(Exception e) {System.out.println(e);};
 	}
+    static void play(Clip clip) {
+        //if (Settings.getSettings().isVolumeOn()) {
+            FloatControl control = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+            int volume = 40;//Settings.getSettings().getVolume();
+            float range = control.getMinimum();
+            float result = range * (1 - volume / 100.0f);
+            control.setValue(result);
+            clip.start();
+        }
+
 	public void paint(Graphics g) {
 	
 		
