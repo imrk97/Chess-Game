@@ -24,6 +24,7 @@ public class KING extends Piece
 	ImageIcon ii = new ImageIcon("images//validPath.png");
 	//boolean path[][] = new boolean[8][8];
 	
+	public KING() {}    // Default
 	public KING(int x, int y, int piece_in_button_id, String turn)
 	{
 		super(x, y, piece_in_button_id);
@@ -41,11 +42,12 @@ public class KING extends Piece
 			j--;
 			if(Game_main_class.Board[i][j] == 0)
 				continue;
-			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 17 || Game_main_class.Board[i][j] == 24)) || (piece_id == 20 && (Game_main_class.Board[i][j] == 1 || Game_main_class.Board[i][j] == 8)))
-				{
-					System.out.println("1");
-					return true;
-				}
+			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 17 || Game_main_class.Board[i][j] == 24 || Game_main_class.Board[i][j] == 21)) 
+					|| (piece_id == 20 && (Game_main_class.Board[i][j] == 1 || Game_main_class.Board[i][j] == 8 || Game_main_class.Board[i][j] == 5)))
+			{
+				System.out.println("1");
+				return true;
+			}
 			else {
 				System.out.println("Aa");
 				break;}
@@ -57,7 +59,8 @@ public class KING extends Piece
 			j++;
 			if(Game_main_class.Board[i][j] == 0)
 				continue;
-			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 17 || Game_main_class.Board[i][j] == 24)) || (piece_id == 20 && (Game_main_class.Board[i][j] == 1 || Game_main_class.Board[i][j] == 8)))
+			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 17 || Game_main_class.Board[i][j] == 24 || Game_main_class.Board[i][j] == 21)) 
+					|| (piece_id == 20 && (Game_main_class.Board[i][j] == 1 || Game_main_class.Board[i][j] == 8 || Game_main_class.Board[i][j] == 5)))
 			{
 				System.out.println("2");
 				return true;
@@ -73,7 +76,8 @@ public class KING extends Piece
 			i--;
 			if(Game_main_class.Board[i][j] == 0)
 				continue;
-			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 17 || Game_main_class.Board[i][j] == 24)) || (piece_id == 20 && (Game_main_class.Board[i][j] == 1 || Game_main_class.Board[i][j] == 8)))
+			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 17 || Game_main_class.Board[i][j] == 24 || Game_main_class.Board[i][j] == 21)) 
+					|| (piece_id == 20 && (Game_main_class.Board[i][j] == 1 || Game_main_class.Board[i][j] == 8 || Game_main_class.Board[i][j] == 5)))
 			{
 				System.out.println("3");
 				return true;
@@ -89,7 +93,8 @@ public class KING extends Piece
 			i++;
 			if(Game_main_class.Board[i][j] == 0)
 				continue;
-			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 17 || Game_main_class.Board[i][j] == 24)) || (piece_id == 20 && (Game_main_class.Board[i][j] == 1 || Game_main_class.Board[i][j] == 8)))
+			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 17 || Game_main_class.Board[i][j] == 24 || Game_main_class.Board[i][j] == 21)) 
+					|| (piece_id == 20 && (Game_main_class.Board[i][j] == 1 || Game_main_class.Board[i][j] == 8 || Game_main_class.Board[i][j] == 5)))
 			{
 				System.out.println("4");
 				return true;
@@ -111,7 +116,8 @@ public class KING extends Piece
 			j++;
 			if(Game_main_class.Board[i][j] == 0)
 				continue;
-			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 19 || Game_main_class.Board[i][j] == 22)) || (piece_id == 20 && (Game_main_class.Board[i][j] == 3 || Game_main_class.Board[i][j] == 6)))
+			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 19 || Game_main_class.Board[i][j] == 22 || Game_main_class.Board[i][j] == 21)) 
+					|| (piece_id == 20 && (Game_main_class.Board[i][j] == 3 || Game_main_class.Board[i][j] == 6 || Game_main_class.Board[i][j] == 5)))
 			{
 				System.out.println("5");
 				return true;
@@ -128,7 +134,8 @@ public class KING extends Piece
 			j--;
 			if(Game_main_class.Board[i][j] == 0)
 				continue;
-			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 19 || Game_main_class.Board[i][j] == 22)) || (piece_id == 20 && (Game_main_class.Board[i][j] == 3 || Game_main_class.Board[i][j] == 6)))
+			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 19 || Game_main_class.Board[i][j] == 22 || Game_main_class.Board[i][j] == 21)) 
+					|| (piece_id == 20 && (Game_main_class.Board[i][j] == 3 || Game_main_class.Board[i][j] == 6 || Game_main_class.Board[i][j] == 5)))
 			{
 				System.out.println("6");
 				return true;
@@ -145,7 +152,8 @@ public class KING extends Piece
 			j--;
 			if(Game_main_class.Board[i][j] == 0)
 				continue;
-			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 19 || Game_main_class.Board[i][j] == 22)) || (piece_id == 20 && (Game_main_class.Board[i][j] == 3 || Game_main_class.Board[i][j] == 6)))
+			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 19 || Game_main_class.Board[i][j] == 22 || Game_main_class.Board[i][j] == 21)) 
+					|| (piece_id == 20 && (Game_main_class.Board[i][j] == 3 || Game_main_class.Board[i][j] == 6 || Game_main_class.Board[i][j] == 5)))
 			{
 				System.out.println("7");
 				return true;
@@ -162,7 +170,8 @@ public class KING extends Piece
 			j++;
 			if(Game_main_class.Board[i][j] == 0)
 				continue;
-			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 19 || Game_main_class.Board[i][j] == 22)) || (piece_id == 20 && (Game_main_class.Board[i][j] == 3 || Game_main_class.Board[i][j] == 6)))
+			else if((piece_id == 4 && (Game_main_class.Board[i][j] == 19 || Game_main_class.Board[i][j] == 22 || Game_main_class.Board[i][j] == 21)) 
+					|| (piece_id == 20 && (Game_main_class.Board[i][j] == 3 || Game_main_class.Board[i][j] == 6 || Game_main_class.Board[i][j] == 5)))
 			{
 				System.out.println("8");
 				return true;
@@ -297,7 +306,7 @@ public class KING extends Piece
 				System.out.println("22");
 				flag = true;
 			}
-			else if(j-1 >= 0 && ((piece_id == 4 && Game_main_class.Board[i+1][j+1] == 20) || (piece_id == 20 && Game_main_class.Board[i+1][j+1] == 4)))
+			else if(j-1 >= 0 && ((piece_id == 4 && Game_main_class.Board[i+1][j-1] == 20) || (piece_id == 20 && Game_main_class.Board[i+1][j-1] == 4)))
 			{
 				System.out.println("23");
 				flag = true;
@@ -310,12 +319,12 @@ public class KING extends Piece
 				System.out.println("24");
 				flag = true;
 			}
-			else if(j+1 <= 7 && ((piece_id == 4 && Game_main_class.Board[i+1][j+1] == 20) || (piece_id == 20 && Game_main_class.Board[i+1][j+1] == 4)))
+			else if(j+1 <= 7 && ((piece_id == 4 && Game_main_class.Board[i-1][j+1] == 20) || (piece_id == 20 && Game_main_class.Board[i-1][j+1] == 4)))
 			{
 				System.out.println("25");
 				flag = true;
 			}
-			else if(j-1 >= 0 && ((piece_id == 4 && Game_main_class.Board[i+1][j+1] == 20) || (piece_id == 20 && Game_main_class.Board[i+1][j+1] == 4)))
+			else if(j-1 >= 0 && ((piece_id == 4 && Game_main_class.Board[i-1][j-1] == 20) || (piece_id == 20 && Game_main_class.Board[i-1][j-1] == 4)))
 			{
 				System.out.println("26");
 				flag = true;
@@ -388,6 +397,8 @@ public class KING extends Piece
 				
 					
 				//boolean path[][] = new boolean[8][8];
+				int temp = Game_main_class.Board[x_pos][y_pos];
+				Game_main_class.Board[x_pos][y_pos] = 0;
 				for (int i = x_pos-1; i <= x_pos+1; i++) //0
 				{
 					for (int j = y_pos-1; j <= y_pos+1; j++)  //3 
@@ -397,7 +408,7 @@ public class KING extends Piece
 							path[i][j] = isValidPath(i,j);}
 					}
 				}
-				
+				Game_main_class.Board[x_pos][y_pos] = temp;
 				//path[0][2] = isValidPath(0, 2);
 				
 				
@@ -411,13 +422,35 @@ public class KING extends Piece
 						System.out.print(path[i][j]+" ");
 					}
 					System.out.println();
-				}		
-							
-							
-							
+				}								
 				//return null;    // Check later
-			
 		
+	}
+	public boolean king_inCheck(int row,int col)  // row and col is King's
+	{
+		for(int a=0;a<8;a++)
+		{
+			for(int b=0;b<8;b++)
+			{
+				System.out.print(Game_main_class.Board[a][b]+" ");
+			}
+			System.out.println();
+		}
+		piece_id = Game_main_class.Board[row][col];
+		if((checkedByRook(row, col) == true) || (checkedByBishop(row, col)==true) || (checkedByKnight(row, col)==true) 
+				|| (checkedByPawn(row, col)==true) || (checkedByKing(row, col)==true))
+		{
+			System.out.println("In check!!!");
+			Chess_Board.button[row][col].setBackground(new Color(219, 6, 12));    
+			return true;
+		}
+		else
+		{
+			System.out.println("Not in check i="+row+"j= "+col);
+			
+			return false;
+		}
+			
 	}
 	ImageIcon resize(ImageIcon img)
 	{

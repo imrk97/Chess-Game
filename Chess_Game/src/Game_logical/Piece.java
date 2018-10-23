@@ -15,8 +15,9 @@ public abstract class Piece
 {
 	Piece_Type type;
 	int x_pos,y_pos;                 //  Here x,y are in row column convention, not in graph convention
-	int piece_id;
+	public int piece_id;
 	//Player player;
+	Piece(){}
 	Piece(int x,int y,int piece_id)
 	{
 		x_pos = x;
@@ -26,5 +27,5 @@ public abstract class Piece
 		//this.player = player;
 	}
 	abstract boolean isValidPath(int dest_x,int dest_y);
-	abstract boolean [][]drawPath(boolean path[][]);
+	abstract void drawPath(boolean path[][]);
 }

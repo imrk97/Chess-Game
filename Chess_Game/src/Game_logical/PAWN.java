@@ -9,10 +9,22 @@
 package Game_logical;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
+import java.awt.Window.Type;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.lang.Math;
 
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+//import javax.swing.WindowConstants;
+import javax.swing.border.LineBorder;
 
 import chess_Game.Chess_Board;
 
@@ -132,8 +144,116 @@ public class PAWN extends Piece
 			System.out.println();
 		}
 		
-		
 		//return null;
+	}
+	public static void pawnPromotion(String turn,int i,int j)
+	{
+		JFrame f = new JFrame();
+		f.getContentPane().setForeground(Color.BLACK);
+		f.getContentPane().setLayout(null);
+		f.setSize(320,350);
+		f.setLocationRelativeTo(null);
+		f.setUndecorated(true);
+		f.getContentPane().setBackground(Color.BLACK);
+		f.setType(Type.UTILITY);
+		f.setVisible(true);
+		
+		JLabel lb = new JLabel("What piece do you want to promote your Pawn to?");
+		lb.setForeground(Color.WHITE);
+		lb.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lb.setBounds(10, 66, 300, 37);
+		JLabel label = new JLabel("Pawn Promotion");
+		label.setForeground(Color.WHITE);
+		label.setFont(new Font("Lucida Handwriting", Font.BOLD | Font.ITALIC, 18));
+		label.setBounds(64, 25, 205, 30);
+		ButtonGroup g = new ButtonGroup();
+		JRadioButton rb_queen = new JRadioButton("QUEEN");
+		rb_queen.setForeground(Color.WHITE);
+		rb_queen.setFont(new Font("Lucida Handwriting", Font.ITALIC, 14));
+		rb_queen.setOpaque(false);
+		rb_queen.setBounds(40,110,100,30);
+		JRadioButton rb_rook = new JRadioButton("ROOK");
+		rb_rook.setForeground(Color.WHITE);
+		rb_rook.setFont(new Font("Lucida Handwriting", Font.ITALIC, 14));
+		rb_rook.setOpaque(false);
+		rb_rook.setBounds(40, 155, 100, 30);
+		JRadioButton rb_knight = new JRadioButton("KNIGHT");
+		rb_knight.setForeground(Color.WHITE);
+		rb_knight.setFont(new Font("Lucida Handwriting", Font.ITALIC, 14));
+		rb_knight.setOpaque(false);
+		rb_knight.setBounds(40, 200, 100, 30);
+		JRadioButton rb_bishop = new JRadioButton("BISHOP");
+		rb_bishop.setForeground(Color.WHITE);
+		rb_bishop.setFont(new Font("Lucida Handwriting", Font.ITALIC, 14));
+		rb_bishop.setOpaque(false);
+		rb_bishop.setBounds(40,245,100,30);
+		g.add(rb_queen);
+		g.add(rb_rook);
+		g.add(rb_knight);
+		g.add(rb_bishop);
+		JButton ok = new JButton("Ok");
+		ok.setBorderPainted(false);
+		ok.setBorder(new LineBorder(new Color(255, 255, 255), 3));
+		ok.setForeground(Color.WHITE);
+		ok.setBackground(Color.BLACK);
+		ok.setFont(new Font("Lucida Handwriting", Font.PLAIN, 16));
+		ok.setBounds(232, 256, 60, 30);
+		f.getContentPane().add(rb_bishop);
+		f.getContentPane().add(rb_knight);
+		f.getContentPane().add(rb_rook);
+		f.getContentPane().add(rb_queen);
+		f.getContentPane().add(ok);
+		f.getContentPane().add(lb);
+		f.getContentPane().add(label);
+		ok.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(rb_queen.isSelected())
+				{
+					//System.out.println("Queen");
+					if(turn == "white")
+						Game_main_class.Board[i][j] = 5;
+					else
+						Game_main_class.Board[i][j] = 21;
+					Chess_Board.reDraw();
+					f.dispose();
+				}
+				else if(rb_rook.isSelected())
+				{
+					//System.out.println("Rook");
+					if(turn == "white")
+						Game_main_class.Board[i][j] = 1;
+					else
+						Game_main_class.Board[i][j] = 17;
+					Chess_Board.reDraw();
+					f.dispose();
+				}
+				else if(rb_knight.isSelected())
+				{
+					//System.out.println("Knight");
+					if(turn == "white")
+						Game_main_class.Board[i][j] = 2;
+					else
+						Game_main_class.Board[i][j] = 18;
+					Chess_Board.reDraw();
+					f.dispose();
+				}
+				else if(rb_bishop.isSelected())
+				{
+					//System.out.println("Bishop");
+					if(turn == "white")
+						Game_main_class.Board[i][j] = 3;
+					else
+						Game_main_class.Board[i][j] = 19;
+					Chess_Board.reDraw();
+					f.dispose();
+				}
+				else
+					JOptionPane.showMessageDialog(f, "Please select an option before clicking on Ok");
+				
+			}
+		});
+		
+		
 	}
 	ImageIcon resize(ImageIcon img)
 	{

@@ -18,7 +18,7 @@ public class Player
 		return player;
 	}
 	
-	void changeTurn()
+	public static void changeTurn()
 	{
 		if(player.equalsIgnoreCase("white"))
 			player = "black";
