@@ -119,7 +119,8 @@ public class Menu1 extends JFrame implements ActionListener
 	{
 		if(e.getSource() == btn1)
 		{
-			Chess_Board ox=new Chess_Board();
+			Startgame oz=new Startgame();
+			//Chess_Board ox=new Chess_Board();
 		}
 		else if(e.getSource() == btn2)
 		{
