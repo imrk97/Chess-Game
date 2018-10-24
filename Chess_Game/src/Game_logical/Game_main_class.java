@@ -7,6 +7,7 @@
  *
  */
 package Game_logical;
+import Frontend.Startgame;
 import chess_Game.Chess_Board;
 //import chess_Game.Pieces_btn;
 
@@ -17,8 +18,8 @@ public class Game_main_class
 	public static void main(String args[])
 	{
 		
-		new Chess_Board();  //Loading the Chess Board (The GUI) and Placing the pieces(GUI)
-		
+		//new Chess_Board("abc","abc");  //Loading the Chess Board (The GUI) and Placing the pieces(GUI)
+		new Startgame();
 		
 		for(int i=0;i<8;i++)    //Delete this later
 		{

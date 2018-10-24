@@ -1,39 +1,40 @@
 package Frontend;
 import java.awt.Color;
-import java.awt.Desktop;                                   
+//import java.awt.Desktop;                                   
 import java.awt.Dimension;
-import java.awt.GridLayout;
+//import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URL;
-import java.util.logging.Logger;
+//import java.io.File;
+//import java.net.MalformedURLException;
+//import java.net.URI;
+//import java.net.URL;
+//import java.util.logging.Logger;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
+//import javax.sound.sampled.AudioInputStream;
+//import javax.sound.sampled.AudioSystem;
+//import javax.sound.sampled.Clip;
+//import javax.sound.sampled.LineUnavailableException;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import chess_Game.Chess_Board;
+//import chess_Game.Chess_Board;
 import chess_Game.Pieces_btn;
 import javax.swing.JButton;
-import javax.swing.border.MatteBorder;
+//import javax.swing.border.MatteBorder;
 
-import com.sun.org.apache.xerces.internal.util.URI.MalformedURIException;
+//import com.sun.org.apache.xerces.internal.util.URI.MalformedURIException;
 
-import javax.swing.UIManager;
-import javax.swing.WindowConstants;
+//import javax.swing.UIManager;
+//import javax.swing.WindowConstants;
 import javax.swing.border.LineBorder;
-import java.awt.Font;
+//import java.awt.Font;
 
 public class Menu1 extends JFrame implements ActionListener
 {
@@ -137,19 +138,19 @@ public class Menu1 extends JFrame implements ActionListener
 			
 			this.dispose();
 			Help oc=new Help();
-			try {
+			try 
+			{
 				oc.helpURL();
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
+			} 
+			catch (Exception e1) 
+			{
 				e1.printStackTrace();
 			}
 		}
 		else if(e.getSource() == btn5)
 		{
-			
-			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-			this.dispose();
+			if(JOptionPane.showConfirmDialog(this,"Are you sure you want to exit game?","Exit",JOptionPane.YES_NO_OPTION) == 0)
+				this.dispose();
 		}
 		
 		
