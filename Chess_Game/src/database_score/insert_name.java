@@ -1,3 +1,5 @@
+package database_score;
+
 //package Frontend;
 /*
  * Created by Rohan Karmakar (imrk97)
@@ -28,6 +30,7 @@ public class insert_name {
 
 	}
 
+	//for testing purposes only
 	public static void main(String args[]) {
 		new insert_name("Rohan");
 		new insert_name("Rahul");

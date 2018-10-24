@@ -1,3 +1,7 @@
+package database_score;
+/*
+ * Created by Rohan Karmakar (imrk97)
+ * */
 
 public class Score {
 	private String name;

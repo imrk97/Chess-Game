@@ -1,3 +1,5 @@
+package database_score;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -53,7 +55,8 @@ public class show_score {
 		}
 
 	}
-
+	
+	//for testing purposes only
 	public static void main(String args[]) {
 		new show_score();
 	}
