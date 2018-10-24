@@ -4,7 +4,11 @@ package Game_logical;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import Frontend.Menu1;
+import Frontend.Startgame;
 import chess_Game.Chess_Board;
+import database_score.Addname;
+import database_score.update_score;
+
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import java.awt.Color;
@@ -84,6 +88,9 @@ public class After_checkMate extends JFrame implements ActionListener
 		
 		
 		
+		new Addname(winner);
+		new Addname(looser);
+		new update_score(winner, looser);
 		
 		setVisible(true);
 	}
@@ -92,13 +99,14 @@ public class After_checkMate extends JFrame implements ActionListener
 	{
 		if(e.getSource() == btn1)             // Play again
 		{
-			new Chess_Board("abc","abc");  //Loading the Chess Board (The GUI) and Placing the pieces(GUI)
+			//new Chess_Board("abc","abc");  //Loading the Chess Board (The GUI) and Placing the pieces(GUI)
+			new Startgame();
 			this.dispose();
 		}
 		else if(e.getSource() == btn2)        // Quit button
 		{
 			this.dispose();
-			//new Menu1();
+			new Menu1();
 		}
 	}
 	/*public static void main(String args[])

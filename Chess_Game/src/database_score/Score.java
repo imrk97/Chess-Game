@@ -52,8 +52,8 @@ public class Score {
 
 	@Override
 	public String toString() {
-		return "Score [Name=" + name + ", Win=" + win + ", Lose=" + lose + ", Draw=" + draw + ", Games Played="
-				+ gamesPlayed + "]";
+		return "  "+name+"\t"+ "\t  "+win+"\t"+ "\t  "+lose+"\t"+ "\t  "+draw+"\t"+ "\t          "+gamesPlayed+"\t\n";
+
 	}
 
 }

@@ -23,9 +23,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 //import chess_Game.Chess_Board;
 import chess_Game.Pieces_btn;
+import database_score.Score;
+import database_score.show_score;
+
 import javax.swing.JButton;
 //import javax.swing.border.MatteBorder;
 
@@ -120,12 +125,12 @@ public class Menu1 extends JFrame implements ActionListener
 	{
 		if(e.getSource() == btn1)
 		{
-			Startgame oz=new Startgame();
-			//Chess_Board ox=new Chess_Board();
+			new Startgame();
+			this.dispose();
 		}
 		else if(e.getSource() == btn2)
 		{
-
+			new show_score();   
 		}
 		else if(e.getSource() == btn3)
 		{
@@ -136,7 +141,7 @@ public class Menu1 extends JFrame implements ActionListener
 		{
 			
 			
-			this.dispose();
+			//this.dispose();
 			Help oc=new Help();
 			try 
 			{

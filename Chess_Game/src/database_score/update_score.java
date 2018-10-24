@@ -98,6 +98,6 @@ public class update_score {
 	// for testing purposes only
 	public static void main(String[] args) {
 
-		new update_score("Rahul", "Rohan");
+		new update_score("Rohan", "Rahul");
 	}
 }

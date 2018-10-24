@@ -129,6 +129,8 @@ import Game_logical.PAWN;
 import Game_logical.Player;
 import Game_logical.QUEEN;
 import Game_logical.ROOK;
+import database_score.Addname;
+import database_score.update_score;
 
 //import chess_Game.Pieces_btn;
 
@@ -537,8 +539,9 @@ public class Chess_Board extends JFrame implements ActionListener
 												looser = black_player;
 											}
 											this.dispose();
-											new Menu1();
+											//new Menu1();
 											new After_checkMate(winner,looser);
+											
 										}
 									}
 								}

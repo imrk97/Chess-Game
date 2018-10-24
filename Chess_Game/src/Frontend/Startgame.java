@@ -110,7 +110,7 @@ public class Startgame extends JFrame implements ActionListener
 			else if(box2.getItemAt(box2.getSelectedIndex()) == "BLACK")
 				player2=textfield2.getText();
 			this.dispose();
-			Chess_Board ox=new Chess_Board(player1,player2);
+			new Chess_Board(player1,player2);
 		}
 		else if(e.getSource() == box1)
 		{
