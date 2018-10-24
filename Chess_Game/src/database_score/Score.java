@@ -55,6 +55,5 @@ public class Score {
 		return "Score [Name=" + name + ", Win=" + win + ", Lose=" + lose + ", Draw=" + draw + ", Games Played="
 				+ gamesPlayed + "]";
 	}
-	
 
 }

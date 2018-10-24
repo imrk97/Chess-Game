@@ -1,6 +1,5 @@
 package database_score;
 
-
 /*
  * Created by Rohan Karmakar (imrk97)
  * */
@@ -96,10 +95,9 @@ public class update_score {
 
 	}
 
-	
-	//for testing purposes only
+	// for testing purposes only
 	public static void main(String[] args) {
-		
+
 		new update_score("Rahul", "Rohan");
 	}
 }
