@@ -52,7 +52,7 @@ public class Startgame extends JFrame implements ActionListener
 		
 		box1 = new JComboBox(options);
 		box1.setBorder(new LineBorder(Color.WHITE, 5, true));
-		box1.setBounds(600, 579, 245, 59);
+		box1.setBounds(200, 520, 245, 59);
 		box1.setFont(new java.awt.Font("Times New Roman", 1, 22));
 		box1.setSelectedIndex(0);
 		box1.addActionListener(this);
@@ -60,7 +60,7 @@ public class Startgame extends JFrame implements ActionListener
 
 		box2 = new JComboBox(options);
 		box2.setBorder(new LineBorder(Color.WHITE, 5, true));
-		box2.setBounds(1130, 579, 245, 59);
+		box2.setBounds(975, 520, 245, 59);
 		box2.setFont(new java.awt.Font("Times New Roman", 1, 22));
 		box2.setSelectedIndex(1);
 		box2.addActionListener(this);
@@ -69,21 +69,21 @@ public class Startgame extends JFrame implements ActionListener
 				
 		btnst = new JButton();
 		btnst.setBorder(new LineBorder(Color.WHITE, 5, true));
-		btnst.setBounds(850, 629, 245, 59);
+		btnst.setBounds(575, 620, 245, 59);
 		btnst.setIcon(resize(start));
 		btnst.addActionListener(this);
 		panel.add(btnst);
 		
 		textfield1 =new JTextField();
 		textfield1.setBorder(new LineBorder(Color.WHITE, 5, true));
-		textfield1.setBounds(850, 229, 245, 59);
+		textfield1.setBounds(565, 75, 245, 59);
 		textfield1.setFont(new java.awt.Font("Times New Roman", 1, 22));
 		textfield1.addActionListener(this);
 		panel.add(textfield1);
 		
 		textfield2 =new JTextField();
 		textfield2.setBorder(new LineBorder(Color.WHITE, 5, true));
-		textfield2.setBounds(850, 380, 245, 59);
+		textfield2.setBounds(565,220, 245, 59);
 		textfield2.setFont(new java.awt.Font("Times New Roman", 1, 22));
 		textfield2.addActionListener(this);
 		panel.add(textfield2);
